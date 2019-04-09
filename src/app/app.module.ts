@@ -67,6 +67,11 @@ import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { RoutesModule } from './routes/routes.module';
 import { LayoutModule } from './layout/layout.module';
+import { DelonMockModule } from '@delon/mock';
+import * as MOCKDATA from '../../_mock';
+import { environment } from '../environments/environment.hmr';
+
+const MOCKMODULE = !environment ? [ DelonMockModule.forRoot({ data: MOCKDATA }) ] : [];
 
 @NgModule({
   declarations: [
@@ -82,7 +87,8 @@ import { LayoutModule } from './layout/layout.module';
     LayoutModule,
     RoutesModule,
     ...FORM_MODULES,
-    ...GLOBAL_THIRD_MODULES
+    ...GLOBAL_THIRD_MODULES,
+    ...MOCKMODULE
   ],
   providers: [
     ...LANG_PROVIDES,
