@@ -26,6 +26,7 @@ for (let i = 0; i < total; i += 1) {
 
 function genData(params: any) {
   let ret = [...list];
+// tslint:disable-next-line: one-variable-per-declaration
   const pi = +params.pi,
     ps = +params.ps,
     start = (pi - 1) * ps;
@@ -48,6 +49,39 @@ export const USERS = {
   '/user': (req: MockRequest) => genData(req.queryString),
   '/user/:id': (req: MockRequest) => list.find(w => w.id === +req.params.id),
   'POST /user/:id': (req: MockRequest) => saveData(+req.params.id, req.body),
+  '/menu': [
+    {
+      text: '主导航',
+      group: true,
+      children: [
+        {
+          text: '仪表盘',
+          link: '/dashboard',
+          icon: { type: 'icon', value: 'appstore' }
+        },
+        {
+          text: '快捷菜单',
+          icon: { type: 'icon', value: 'rocket' },
+          shortcutRoot: true
+        }
+      ]
+    },
+    {
+      text: '主导航',
+      group: true,
+      children: [
+        {
+          text: '仪表盘',
+          link: '/dashboard',
+          icon: { type: 'icon', value: 'appstore' }
+        },
+        {
+          text: '快捷菜单',
+          icon: { type: 'icon', value: 'rocket' },
+        }
+      ]
+    }
+  ],
   '/user/current': {
     name: 'Cipchk',
     avatar:

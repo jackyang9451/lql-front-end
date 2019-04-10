@@ -70,6 +70,7 @@ import { LayoutModule } from './layout/layout.module';
 import { DelonMockModule } from '@delon/mock';
 import * as MOCKDATA from '../../_mock';
 import { environment } from '../environments/environment.hmr';
+import { DelonACLModule } from '@delon/acl';
 
 const MOCKMODULE = !environment ? [ DelonMockModule.forRoot({ data: MOCKDATA }) ] : [];
 
@@ -88,7 +89,8 @@ const MOCKMODULE = !environment ? [ DelonMockModule.forRoot({ data: MOCKDATA }) 
     RoutesModule,
     ...FORM_MODULES,
     ...GLOBAL_THIRD_MODULES,
-    ...MOCKMODULE
+    ...MOCKMODULE,
+    DelonACLModule,
   ],
   providers: [
     ...LANG_PROVIDES,
