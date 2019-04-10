@@ -47,7 +47,10 @@ const GLOBAL_THIRD_MODULES = [
 
 // #region Startup Service
 import { StartupService } from '@core/startup/startup.service';
-export function StartupServiceFactory(startupService: StartupService): Function {
+export function StartupServiceFactory(
+  startupService: StartupService
+// tslint:disable-next-line: ban-types
+  ): Function {
   return () => startupService.load();
 }
 const APPINIT_PROVIDES = [
