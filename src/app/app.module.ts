@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // 参考：https://ng-alain.com/docs/i18n
 import { default as ngLang } from '@angular/common/locales/zh';
 import { NZ_I18N, zh_CN as zorroLang } from 'ng-zorro-antd';
-import { DELON_LOCALE, zh_CN as delonLang } from '@delon/theme';
+import { DELON_LOCALE, zh_CN as delonLang, BaseUrl } from '@delon/theme';
 const LANG = {
   abbr: 'zh',
   ng: ngLang,
@@ -74,12 +74,19 @@ import { DelonMockModule } from '@delon/mock';
 import * as MOCKDATA from '../../_mock';
 import { environment } from '../environments/environment.hmr';
 import { DelonACLModule } from '@delon/acl';
+import { NgxTinymceModule } from 'ngx-tinymce';
+import { TinymceWidget } from './routes/news/news-publish/TinymceWidget';
+import { WidgetRegistry } from '@delon/form';
 
 const MOCKMODULE = !environment ? [ DelonMockModule.forRoot({ data: MOCKDATA }) ] : [];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TinymceWidget
+  ],
+  entryComponents: [
+    TinymceWidget
   ],
   imports: [
     BrowserModule,
@@ -94,6 +101,9 @@ const MOCKMODULE = !environment ? [ DelonMockModule.forRoot({ data: MOCKDATA }) 
     ...GLOBAL_THIRD_MODULES,
     ...MOCKMODULE,
     DelonACLModule,
+    NgxTinymceModule.forRoot({
+      baseURL: './assets/tinymce/',
+    })
   ],
   providers: [
     ...LANG_PROVIDES,
@@ -102,4 +112,8 @@ const MOCKMODULE = !environment ? [ DelonMockModule.forRoot({ data: MOCKDATA }) 
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(widgetRegistry: WidgetRegistry) {
+    widgetRegistry.register(TinymceWidget.KEY, TinymceWidget);
+  }
+}

@@ -20,8 +20,7 @@
           "children": [
             {
               "text": "我要发布",
-              "link": "/dashboard/v1",
-              "acl": "USER:ADD"
+              "link": "/news/news-publish"
             },
             {
               "text": "待审核文章",

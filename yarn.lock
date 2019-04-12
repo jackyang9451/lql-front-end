@@ -4974,6 +4974,12 @@ ngx-countdown@^3.0.0:
   dependencies:
     tslib "^1.9.0"
 
+ngx-tinymce@^7.0.0:
+  version "7.0.0"
+  resolved "http://registry.npm.taobao.org/ngx-tinymce/download/ngx-tinymce-7.0.0.tgz#51abfe29d85bb3628106c40eca6d94895abacde3"
+  dependencies:
+    tslib "^1.9.0"
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "http://registry.npm.taobao.org/nice-try/download/nice-try-1.0.5.tgz?cache=0&other_urls=http%3A%2F%2Fregistry.npm.taobao.org%2Fnice-try%2Fdownload%2Fnice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"

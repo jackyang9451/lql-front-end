@@ -26,7 +26,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent, data: { title: '仪表盘', titleI18n: 'dashboard' } },
       { path: 'exception', loadChildren: './exception/exception.module#ExceptionModule' },
       // 业务子模块
-      // { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' }
+      { path: 'news', loadChildren: './news/news.module#NewsModule' },
     ]
   },
   // 全屏布局

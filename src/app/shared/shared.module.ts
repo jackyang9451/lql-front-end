@@ -11,9 +11,11 @@ import { DelonFormModule } from '@delon/form';
 // #region third libs
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { CountdownModule } from 'ngx-countdown';
+import { NgxTinymceModule } from 'ngx-tinymce';
 const THIRDMODULES = [
   NgZorroAntdModule,
-  CountdownModule
+  CountdownModule,
+  NgxTinymceModule
 ];
 // #endregion
 
