@@ -43,14 +43,19 @@ export class NewsNewsPublishComponent implements OnInit {
         type: 'string',
         title: '文章正文',
         ui: {
-          widget: 'tinymce'
-        }
+          widget: 'tinymce',
+          loadingTip: '加载中...........'
+        },
       }
     }
   };
 
   constructor(private http: _HttpClient) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
+  submit(value: any) {
+    console.log(value);
+  }
 }

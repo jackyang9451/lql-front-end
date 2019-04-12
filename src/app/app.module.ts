@@ -75,18 +75,14 @@ import * as MOCKDATA from '../../_mock';
 import { environment } from '../environments/environment.hmr';
 import { DelonACLModule } from '@delon/acl';
 import { NgxTinymceModule } from 'ngx-tinymce';
-import { TinymceWidget } from './routes/news/news-publish/TinymceWidget';
-import { WidgetRegistry } from '@delon/form';
 
 const MOCKMODULE = !environment ? [ DelonMockModule.forRoot({ data: MOCKDATA }) ] : [];
 
 @NgModule({
   declarations: [
     AppComponent,
-    TinymceWidget
   ],
   entryComponents: [
-    TinymceWidget
   ],
   imports: [
     BrowserModule,
@@ -113,7 +109,4 @@ const MOCKMODULE = !environment ? [ DelonMockModule.forRoot({ data: MOCKDATA }) 
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(widgetRegistry: WidgetRegistry) {
-    widgetRegistry.register(TinymceWidget.KEY, TinymceWidget);
-  }
 }
