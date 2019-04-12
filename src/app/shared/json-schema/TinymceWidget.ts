@@ -4,33 +4,34 @@ import { ControlWidget } from '@delon/form';
 @Component({
   selector: 'sf-tinymce',
   template: `
-  <sf-item-wrap [id]="id" [schema]="schema" [ui]="ui" [showError]="showError" [error]="error" [showTitle]="schema.title">
-    <!-- 开始自定义控件区域 -->
-    <tinymce
-      [ngModel]="value"
-      (ngModelChange)="change($event)"
-      [config]="config"
-      [loading]="loadingTip">
-    </tinymce>
-    <!-- 结束自定义控件区域 -->
-  </sf-item-wrap>`
+    <sf-item-wrap
+      [id]="id"
+      [schema]="schema"
+      [ui]="ui"
+      [showError]="showError"
+      [error]="error"
+      [showTitle]="schema.title"
+    >
+      <tinymce
+        [ngModel]="value"
+        (ngModelChange)="change($event)"
+        [config]="config"
+        [loading]="loading"
+      >
+      </tinymce>
+    </sf-item-wrap>
+  `,
 })
+// tslint:disable-next-line:component-class-suffix
 export class TinymceWidget extends ControlWidget implements OnInit {
-  /* 用于注册小部件 KEY 值 */
   static readonly KEY = 'tinymce';
 
-  // 组件所需要的参数，建议使用 `ngOnInit` 获取
-  config: any;
-  loadingTip: string;
+  config: {};
+  loading: string;
 
   ngOnInit(): void {
-    this.loadingTip = this.ui.loadingTip || '加载中……';
+    this.loading = this.ui.loading || '加载中……';
     this.config = this.ui.config || {};
-  }
-
-  // reset 可以更好的解决表单重置过程中所需要的新数据问题
-  reset(value: string) {
-
   }
 
   change(value: string) {

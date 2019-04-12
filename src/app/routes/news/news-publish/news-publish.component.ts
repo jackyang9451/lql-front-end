@@ -44,7 +44,6 @@ export class NewsNewsPublishComponent implements OnInit {
         title: '文章正文',
         ui: {
           widget: 'tinymce',
-          loadingTip: '加载中...........'
         },
       }
     }

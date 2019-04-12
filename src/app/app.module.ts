@@ -97,9 +97,7 @@ const MOCKMODULE = !environment ? [ DelonMockModule.forRoot({ data: MOCKDATA }) 
     ...GLOBAL_THIRD_MODULES,
     ...MOCKMODULE,
     DelonACLModule,
-    NgxTinymceModule.forRoot({
-      baseURL: './assets/tinymce/',
-    })
+    NgxTinymceModule.forRoot({})
   ],
   providers: [
     ...LANG_PROVIDES,
