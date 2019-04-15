@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { _HttpClient } from '@delon/theme';
 import { HttpHeaders } from '@angular/common/http';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+const httpOptions = new HttpHeaders({ 'Content-Type': 'application/json' });
+
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +27,8 @@ export class NewsServiceService {
    * 获取指定ID的文章内容
    */
   getArticleById(id: any) {
-    const url = `${this.baseUrl}${id}`;
+    const optionalUrl = 'lql/article';
+    const url = `${this.baseUrl}${optionalUrl}/${id}`;
     return this.http.get(url);
    }
    /**
@@ -39,7 +39,13 @@ export class NewsServiceService {
    getArticlePagination(pageNum: any, pageSize: any) {
      const optionalUrl = `lql/article?pageSize=${pageSize}&pageNum=${pageNum}`;
      const url = `${this.baseUrl}${optionalUrl}`;
-     return this.http.get(url);
+     return this.http.get(url)  ;
    }
-   ////////////////////////POST 请求
+   //////////////////////// POST 请求
+   addArticle(article: any) {
+     const optionalUrl = 'lql/article';
+     const url = `${this.baseUrl}${optionalUrl}`;
+     // 直接把对象扔进去就可以了
+     return this.http.post(url, article);
+   }
 }

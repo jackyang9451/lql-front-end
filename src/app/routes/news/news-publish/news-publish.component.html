@@ -10,7 +10,7 @@
             </nz-select>
         </se>
         <se label="标签" error="输入一些标签让大家更了解你的内容" required>
-            <nz-select nzMode="tags" nzPlaceHolder="输入自定义的标签然后选择" formControlName="articleLabels" (ngModelChange)="test($event)">
+            <nz-select nzMode="tags" nzPlaceHolder="输入自定义的标签然后选择" formControlName="articleLabels">
                 <nz-option *ngFor="let option of listOfOption" [nzLabel]="option.label" [nzValue]="option.value"> </nz-option>
             </nz-select>
         </se>

@@ -4,6 +4,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 // import { ArticleInformation } from '../../../interface/ArticleInformation'
 import { NzMessageService } from 'ng-zorro-antd';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NewsServiceService } from 'app/service/news-service.service';
 
 @Component({
   selector: 'app-news-news-publish',
@@ -22,7 +23,8 @@ export class NewsNewsPublishComponent implements OnInit {
     private http: HttpClient,
     private fb: FormBuilder,
     private msg: NzMessageService,
-    private cdr: ChangeDetectorRef) { }
+    private cdr: ChangeDetectorRef,
+    private newService: NewsServiceService) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -41,11 +43,15 @@ export class NewsNewsPublishComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.form.value);
-
-  }
-
-  test(value) {
-    console.log(value);
+    this.submitting = true;
+    // 究极开发偷懒方式 直接赋值哇
+    this.form.value.userid = 1; // 偷懒没有写用户模块
+    this.form.value.articleLabels = '1,2'; // 偷懒不会写标签
+    // console.log(this.form.value);
+    this.newService.addArticle(this.form.value)
+    .subscribe(res => {
+      console.log(res);
+      this.submitting = false;
+    });
   }
 }

@@ -1,10 +1,28 @@
 <page-header [title]="'编辑 ' + id + ' 信息'"></page-header>
-<nz-card>
-  <nz-spin *ngIf="!i" class="modal-spin"></nz-spin>
-  <sf *ngIf="i" #sf mode="edit" [schema]="schema" [ui]="ui" [formData]="i" button="none">
-    <footer-toolbar errorCollect>
-      <button nz-button type="button" (click)="location.back()" [nzLoading]="http.loading">返回</button>
-      <button nz-button type="submit" nzType="primary" (click)="save(sf.value)" [disabled]="!sf.valid" [nzLoading]="http.loading">保存</button>
-    </footer-toolbar>
-  </sf>
-</nz-card>
+<nz-card [nzBordered]="false">
+    <form nz-form [formGroup]="form" (ngSubmit)="submit()" se-container="1" labelWidth="200">
+        <se label="板块" error="板块是必须要填写的" required>
+            <nz-select nzAllowClear nzPlaceHolder="选择一个你要发布的板块" formControlName="articleSectionId">
+                    <nz-option nzValue="1" nzLabel="通知"></nz-option>
+                    <nz-option nzValue="2" nzLabel="新闻"></nz-option>
+                    <nz-option nzValue="3" nzLabel="项目介绍"></nz-option>
+                    <nz-option nzValue="4" nzLabel="资讯"></nz-option>
+            </nz-select>
+        </se>
+        <se label="标签" error="输入一些标签让大家更了解你的内容" required>
+            <nz-select nzMode="tags" nzPlaceHolder="输入自定义的标签然后选择" formControlName="articleLabels">
+                <nz-option *ngFor="let option of listOfOption" [nzLabel]="option.label" [nzValue]="option.value"> </nz-option>
+            </nz-select>
+        </se>
+        <se label="文章标题" error="取一个响亮的名字" required>
+            <input nz-input placeholder="输入文章的标题" formControlName="articleTitle" />
+        </se>
+        <se label="正文内容" error="文章内容为必填项" required>
+            <tinymce formControlName="articleContent"></tinymce>
+        </se>
+        <se>
+            <button nz-button nzType="primary" [disabled]="form.invalid" type="submit" [nzLoading]="submitting">提交</button>
+            <button nz-button class="ml-sm">保存</button>
+        </se> 
+    </form>
+ </nz-card>
