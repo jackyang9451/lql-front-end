@@ -27,6 +27,7 @@ const routes: Routes = [
       { path: 'exception', loadChildren: './exception/exception.module#ExceptionModule' },
       // 业务子模块
       { path: 'news', loadChildren: './news/news.module#NewsModule' },
+      { path: 'meeting', loadChildren: './meeting/meeting.module#MeetingModule' },
     ]
   },
   // 全屏布局

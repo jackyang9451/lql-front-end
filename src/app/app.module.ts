@@ -75,14 +75,20 @@ import * as MOCKDATA from '../../_mock';
 import { environment } from '../environments/environment.hmr';
 import { DelonACLModule } from '@delon/acl';
 import { NgxTinymceModule } from 'ngx-tinymce';
+import { WidgetRegistry } from '@delon/form';
+import { TinymceWidget } from '@shared/json-schema/TinymceWidget';
 
 const MOCKMODULE = !environment ? [ DelonMockModule.forRoot({ data: MOCKDATA }) ] : [];
 
 @NgModule({
   declarations: [
     AppComponent,
+    TinymceWidget,
+
   ],
   entryComponents: [
+    TinymceWidget,
+
   ],
   imports: [
     BrowserModule,
@@ -97,7 +103,12 @@ const MOCKMODULE = !environment ? [ DelonMockModule.forRoot({ data: MOCKDATA }) 
     ...GLOBAL_THIRD_MODULES,
     ...MOCKMODULE,
     DelonACLModule,
-    NgxTinymceModule.forRoot({})
+    NgxTinymceModule.forRoot({
+      baseURL: 'https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.9.2/',
+      config: {
+        language_url: './assets/tinymce/langs/zh_CN.js'
+      }
+    })
   ],
   providers: [
     ...LANG_PROVIDES,
@@ -107,4 +118,7 @@ const MOCKMODULE = !environment ? [ DelonMockModule.forRoot({ data: MOCKDATA }) 
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  constructor(widgetRegistry: WidgetRegistry) {
+    widgetRegistry.register(TinymceWidget.KEY, TinymceWidget);
+  }
 }

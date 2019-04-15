@@ -17,6 +17,7 @@ import { ControlWidget } from '@delon/form';
         (ngModelChange)="change($event)"
         [config]="config"
         [loading]="loading"
+        [delay]="1000"
       >
       </tinymce>
     </sf-item-wrap>
@@ -38,4 +39,5 @@ export class TinymceWidget extends ControlWidget implements OnInit {
     if (this.ui.change) this.ui.change(value);
     this.setValue(value);
   }
+
 }

@@ -24,11 +24,11 @@
             },
             {
               "text": "待审核文章",
-              "link": "/dashboard/analysis"
+              "link": "/news/news-verify"
             },
             {
               "text": "删除帖子",
-              "link": "/dashboard/monitor"
+              "link": "/news/news-delete"
             }
           ]
         }
@@ -45,31 +45,52 @@
           "children": [
             {
               "text": "全部会议 | 报名",
-              "link": "/dashboard/v1"
+              "link": "/meeting/sign-up"
             },
             {
               "text": "起草会议",
-              "link": "/dashboard/v1"
+              "link": "/meeting/add"
             },
             {
               "text": "待审核会议",
-              "link": "/dashboard/analysis"
+              "link": "/meeting/verify"
             },
             {
               "text": "删除会议",
-              "link": "/dashboard/monitor"
+              "link": "/meeting/delete"
             }
           ]
         }
       ]
     },
     {
-      "text": "新闻公告、政策解读等发布版块",
+      "text": "资料共享",
       "group": false,
       "hideInBreadcrumb": true,
       "children": [
         {
-          "text": "新闻|政策",
+          "text": "文件列表",
+          "icon": "anticon anticon-dashboard",
+          "children": [
+            {
+              "text": "资料审核",
+              "link": "/dashboard/v1"
+            },
+            {
+              "text": "上传发布",
+              "link": "/dashboard/analysis"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "项目供需发布合作系统",
+      "group": false,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "项目供需合作",
           "icon": "anticon anticon-dashboard",
           "children": [
             {
@@ -89,37 +110,12 @@
       ]
     },
     {
-      "text": "新闻公告、政策解读等发布版块",
+      "text": "文件传输系统",
       "group": false,
       "hideInBreadcrumb": true,
       "children": [
         {
-          "text": "新闻|政策",
-          "icon": "anticon anticon-dashboard",
-          "children": [
-            {
-              "text": "我要发布",
-              "link": "/dashboard/v1"
-            },
-            {
-              "text": "待审核文章",
-              "link": "/dashboard/analysis"
-            },
-            {
-              "text": "删除帖子",
-              "link": "/dashboard/monitor"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "text": "新闻公告、政策解读等发布版块",
-      "group": false,
-      "hideInBreadcrumb": true,
-      "children": [
-        {
-          "text": "新闻|政策",
+          "text": "发送文件",
           "icon": "anticon anticon-dashboard",
           "children": [
             {

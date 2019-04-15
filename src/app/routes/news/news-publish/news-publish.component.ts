@@ -1,60 +1,51 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy, ViewChild, ElementRef } from '@angular/core';
 import { _HttpClient } from '@delon/theme';
-import { SFSchema } from '@delon/form';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+// import { ArticleInformation } from '../../../interface/ArticleInformation'
+import { NzMessageService } from 'ng-zorro-antd';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-news-news-publish',
   templateUrl: './news-publish.component.html',
 })
 export class NewsNewsPublishComponent implements OnInit {
-  schema: SFSchema = {
-    properties: {
-      // 板块ID
-      articelSectionId: {
-        type: 'string',
-        title: '板块',
-        enum: [
-          { label: '新闻', value: 1 },
-          { label: '通知', value: 2 },
-          { label: '项目介绍', value: 3 },
-          { label: '咨询', value: 4}
-        ]
-      },
-      // 标签集
-      articelLabels: {
-        type: 'number',
-        title: '标签',
-        enum: [
-          { value: 1, label: '标签1' },
-          { value: 2, label: '标签2' },
-          { value: 3, label: '标签3' },
-        ],
-        ui: {
-          widget: 'tag'
-        }
-      },
-      // 文章标题
-      articelTitle: {
-        type: 'string',
-        title: '文章标题'
-      },
-      // 文章内容
-      articelContent: {
-        type: 'string',
-        title: '文章正文',
-        ui: {
-          widget: 'tinymce',
-        },
-      }
-    }
-  };
+  form: FormGroup;
+  submitting = false;
 
-  constructor(private http: _HttpClient) { }
+  // 标签中要使用的变量
+  listOfOption: Array<{ label: string; value: string }> = [];
+  listOfTagOptions = [];
+
+
+  constructor(
+    private http: HttpClient,
+    private fb: FormBuilder,
+    private msg: NzMessageService,
+    private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
+    this.form = this.fb.group({
+      articleSectionId: [null, [Validators.required]],
+      articleLabels: [null, [Validators.required]],
+      articleTitle: [null, [Validators.required]],
+      articleContent: [null, [Validators.required]],
+    });
+
+    // 初始化标签中的数据
+    const children: Array<{ label: string; value: string }> = [];
+    for (let i = 10; i < 36; i++) {
+      children.push({ label: i.toString(36) + i, value: '' + i });
+    }
+    this.listOfOption = children;
   }
 
-  submit(value: any) {
+  submit() {
+    console.log(this.form.value);
+
+  }
+
+  test(value) {
     console.log(value);
   }
 }
