@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // 参考：https://ng-alain.com/docs/i18n
 import { default as ngLang } from '@angular/common/locales/zh';
 import { NZ_I18N, zh_CN as zorroLang } from 'ng-zorro-antd';
-import { DELON_LOCALE, zh_CN as delonLang, BaseUrl } from '@delon/theme';
+import { DELON_LOCALE, zh_CN as delonLang, BaseUrl, zh_CN } from '@delon/theme';
 const LANG = {
   abbr: 'zh',
   ng: ngLang,
@@ -104,9 +104,18 @@ const MOCKMODULE = !environment ? [ DelonMockModule.forRoot({ data: MOCKDATA }) 
     ...MOCKMODULE,
     DelonACLModule,
     NgxTinymceModule.forRoot({
-      baseURL: 'https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.9.2/',
+      baseURL: './assets/tinymce/',
       config: {
-        language_url: './assets/tinymce/langs/zh_CN.js'
+        language: 'zh_CN',
+        theme: 'modern',
+// tslint:disable-next-line: max-line-length
+        plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image imagetools link media template codesample table charmap hr pagebreak nonbreaking anchor insertdatetime advlist lists textcolor wordcount contextmenu colorpicker textpattern',
+// tslint:disable-next-line: max-line-length
+        toolbar: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+        image_advtab: true,
+        imagetools_toolbar: 'rotateleft rotateright | flipv fliph | editimage imageoptions',
+        branding: false,
+        height: 400,
       }
     })
   ],

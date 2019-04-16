@@ -20,8 +20,7 @@ const COMPONENTS = [
   UserRegisterResultComponent,
   // single pages
   CallbackComponent,
-  UserLockComponent,
-];
+  UserLockComponent];
 const COMPONENTS_NOROUNT = [];
 
 @NgModule({

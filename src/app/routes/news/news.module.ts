@@ -4,11 +4,13 @@ import { NewsRoutingModule } from './news-routing.module';
 import { NewsNewsPublishComponent } from './news-publish/news-publish.component';
 import { NewsNewsManageComponent } from './news-manage/news-manage.component';
 import { NewsEditComponent } from './edit/edit.component';
+import { NewsNewsViewComponent } from './news-view/news-view.component';
 
 const COMPONENTS = [
   NewsNewsPublishComponent,
   NewsNewsManageComponent,
-  NewsEditComponent];
+  NewsEditComponent,
+  NewsNewsViewComponent];
 const COMPONENTS_NOROUNT = [];
 
 @NgModule({

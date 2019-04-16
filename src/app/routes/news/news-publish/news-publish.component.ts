@@ -45,12 +45,15 @@ export class NewsNewsPublishComponent implements OnInit {
   submit() {
     this.submitting = true;
     // 究极开发偷懒方式 直接赋值哇
-    this.form.value.userid = 1; // 偷懒没有写用户模块
+    this.form.value.userId = 1; // 偷懒没有写用户模块
     this.form.value.articleLabels = '1,2'; // 偷懒不会写标签
     // console.log(this.form.value);
     this.newService.addArticle(this.form.value)
-    .subscribe(res => {
-      console.log(res);
+    .subscribe((res: any) => {
+      if (res.status === 200) {
+        this.msg.success('提交成功,请勿重复提交');
+        this.form.reset();
+      }
       this.submitting = false;
     });
   }

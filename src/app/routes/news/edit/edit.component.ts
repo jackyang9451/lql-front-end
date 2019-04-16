@@ -35,8 +35,8 @@ export class NewsEditComponent implements OnInit {
   ngOnInit(): void {
     // console.log(this.param.id);
     this.newService.getArticleById(this.id)
-    .subscribe(res => {
-      this.updateName(res);
+    .subscribe((res: any) => {
+      this.updateName(res.result);
     });
 
     this.form = this.fb.group({
@@ -58,23 +58,29 @@ export class NewsEditComponent implements OnInit {
    */
   updateName(value: any) {
     this.form.setValue({
-      articleSectionId: '' + value.articleSectionId,  // 这里是什么蛇皮操作, 为什么变成字符串
+      articleSectionId: '' + value.articleSectionId,  // 这里是什么蛇皮操作, 为什么变成字符串就可以卧槽
       articleLabels: value.articleLabels,
       articleTitle: value.articleTitle,
       articleContent: value.articleContent
     });
   }
 
-  save(value: any) {
-    // this.http.post(`/user/${this.record.id}`, value).subscribe(res => {
-    //   this.msgSrv.success('保存成功');
-    //   this.modal.close(true);
-    // });
-  }
-
   // 表单提交
   submit() {
+    this.submitting = true;
+    // 究极开发偷懒方式 直接赋值哇
+    this.form.value.userId = 1; // 偷懒没有写用户模块
+    this.form.value.articleLabels = '1,2'; // 偷懒不会写标签
+    this.form.value.id = this.id;
     console.log(this.form.value);
+    this.newService.modifyArticle(this.form.value)
+    .subscribe((res: any) => {
+      console.log(res);
+      if (res.status === 200) {
+        this.msgSrv.success('修改成功');
+      }
+      this.submitting = false;
+    });
 
   }
 }

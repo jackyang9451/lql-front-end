@@ -23,8 +23,8 @@
               "link": "/news/news-publish"
             },
             {
-              "text": "待审核文章",
-              "link": "/news/news-verify"
+              "text": "文章管理",
+              "link": "/news/news-manage"
             },
             {
               "text": "删除帖子",

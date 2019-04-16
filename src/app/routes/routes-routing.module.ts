@@ -50,14 +50,14 @@ const routes: Routes = [
   },
   // 单页不包裹Layout
   { path: 'callback/:type', component: CallbackComponent },
-  { path: '**', redirectTo: 'exception/404' },
-];
+  { path: '**', redirectTo: 'exception/404' }];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(
       routes, {
         useHash: environment.useHash,
+        enableTracing: true,
         // NOTICE: If you use `reuse-tab` component and turn on keepingScroll you can set to `disabled`
         // Pls refer to https://ng-alain.com/components/reuse-tab
         scrollPositionRestoration: 'top',
