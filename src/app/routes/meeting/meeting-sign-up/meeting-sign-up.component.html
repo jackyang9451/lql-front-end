@@ -1,45 +1,17 @@
-<page-header>
-  <!-- <ng-template #phActionTpl>
-    <button (click)="add()" nz-button nzType="primary">新建</button>
-  </ng-template> -->
-</page-header>
-<!-- <nz-card [nzBordered]="false">
-    <div nz-row>
-      <div nz-col [nzXs]="24" [nzSm]="8" class="header-info">
-        <span class="text-grey-dark">我的待办</span>
-        <span class="d-block display-2">8个任务</span>
-        <em></em>
-      </div>
-      <div nz-col [nzXs]="24" [nzSm]="8" class="header-info">
-        <span class="text-grey-dark">本周任务平均处理时间</span>
-        <span class="d-block display-2">32分钟</span>
-        <em></em>
-      </div>
-      <div nz-col [nzXs]="24" [nzSm]="8" class="header-info">
-        <span class="text-grey-dark">本周完成任务数</span>
-        <span class="d-block display-2">24个任务</span>
-      </div>
-    </div>
-  </nz-card> -->
-  <nz-card [nzBordered]="false">
+<page-header></page-header>
+<nz-card [nzBordered]="false">
     <div class="d-flex align-items-center mb-lg">
       <!-- <h3 class="flex-1 text-lg">标准列表</h3> -->
       <div>
         <nz-radio-group [(ngModel)]="q.status" class="mr-md">
           <label nz-radio-button [nzValue]="'all'">
-            <span>通知</span>
+            <span>全部</span>
+          </label>
+          <label nz-radio-button [nzValue]="'progress'">
+            <span>进行中</span>
           </label>
           <label nz-radio-button [nzValue]="'waiting'">
-            <span>新闻</span>
-          </label>
-          <label nz-radio-button [nzValue]="'ttl'">
-              <span>项目资讯</span>
-          </label>
-          <label nz-radio-button [nzValue]="'prgress'">
-              <span>资讯</span>
-          </label>
-          <label nz-radio-button [nzValue]="'progres'">
-              <span>文件</span>
+            <span>等待中</span>
           </label>
         </nz-radio-group>
         <!-- 搜索框 -->
@@ -48,10 +20,10 @@
         </nz-input-group> -->
       </div>
     </div>
-    <!-- <button nz-button (click)="openEdit()" [nzType]="'dashed'" nzBlock class="mb-sm">
+    <button nz-button (click)="openEdit()" [nzType]="'dashed'" nzBlock class="mb-sm">
       <i nz-icon type="plus"></i>
       <span>添加</span>
-    </button> -->
+    </button>
     <nz-list [nzDataSource]="data" [nzLoading]="loading" [nzRenderItem]="item" [nzPagination]="pagination">
       <ng-template #item let-item>
         <nz-list-item [nzContent]="nzContent" [nzActions]="[edit, op]">
@@ -65,7 +37,7 @@
                 <i nz-icon type="down"></i>
               </a>
               <ul nz-menu>
-                <li nz-menu-item (click)="openEdit(item)">审批</li>
+                <li nz-menu-item (click)="openEdit(item)">编辑</li>
                 <li nz-menu-item (click)="deleteIt(item.id)">删除</li>
               </ul>
             </nz-dropdown>

@@ -53,8 +53,23 @@
   </nz-steps>
   <div class="steps-content"></div>
 </nz-card>
+<nz-card [nzBordered]="false">
+  <div [innerHTML]="articleData?.articleContent | html"></div>
+</nz-card>
 <nz-card>
-  <div [innerHTML]=articleData?.articleContent></div>
+  <h1>评论一番:</h1>
+    <nz-rate [(ngModel)]="value" [nzTooltips]="tooltips"></nz-rate>
+    <span *ngIf="value" class="ant-rate-text">{{ value ? tooltips[value - 1] : '' }}</span>
+
+    <div>
+        <textarea
+          nz-input
+          placeholder="说出你真实的想法"
+          [(ngModel)]="value"
+          [nzAutosize]="{ minRows: 2, maxRows: 6 }"
+        ></textarea>
+    </div>
+    <button nz-button nzType="primary" nzBlock>提交</button>
 </nz-card>
 
 

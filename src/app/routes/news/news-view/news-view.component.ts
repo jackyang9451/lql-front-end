@@ -16,19 +16,10 @@ export class NewsNewsViewComponent implements OnInit {
   list: any[] = [];
   articleTitle: any;
 
-  data = {
-    advancedOperation1: [],
-    advancedOperation2: [],
-    advancedOperation3: [],
-  };
+  // 评分这里
+  tooltips = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
+  value = 3;
 
-  opColumns: STColumn[] = [
-    { title: '操作类型', index: 'type' },
-    { title: '操作人', index: 'name' },
-    { title: '执行结果', index: 'status', render: 'status' },
-    { title: '操作时间', index: 'updatedAt', type: 'date' },
-    { title: '备注', index: 'memo', default: '-' },
-  ];
   constructor(
     public msg: NzMessageService,
     private http: _HttpClient,
@@ -44,18 +35,9 @@ export class NewsNewsViewComponent implements OnInit {
         this.articleData = res.result;
         console.log(res);
       });
-
-      this.http.get('/profile/advanced').subscribe((res: any) => {
-        this.data = res;
-        this.change({ index: 0, tab: null });
-        this.cdr.detectChanges();
-      });
     }
     back(value: any) {
       this.location.back();
-    }
-    change(args: NzTabChangeEvent) {
-      this.list = this.data[`advancedOperation${args.index + 1}`];
     }
 
 }

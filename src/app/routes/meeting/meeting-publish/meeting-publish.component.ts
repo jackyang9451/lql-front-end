@@ -1,21 +1,22 @@
-import { Component, OnInit, ChangeDetectorRef, ChangeDetectionStrategy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { _HttpClient } from '@delon/theme';
-import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
-// import { ArticleInformation } from '../../../interface/ArticleInformation'
+import { HttpClient } from '@angular/common/http';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NewsServiceService } from 'app/service/news-service.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UploadService } from 'app/service/upload.service';
+import { NewsServiceService } from 'app/service/news-service.service';
 
 @Component({
-  selector: 'app-news-news-publish',
-  templateUrl: './news-publish.component.html',
+  selector: 'app-meeting-meeting-publish',
+  templateUrl: './meeting-publish.component.html',
 })
-export class NewsNewsPublishComponent implements OnInit {
+export class MeetingMeetingPublishComponent implements OnInit {
   form: FormGroup;
   submitting = false;
 
+  // // 路由传来的参数
+  // articleSectionId = this.route.snapshot.queryParamMap.get('articleSectionId');
   // 标签中要使用的变量
   listOfOption: Array<{ label: string; value: string }> = [];
   listOfTagOptions = [];
@@ -55,12 +56,13 @@ export class NewsNewsPublishComponent implements OnInit {
     private fb: FormBuilder,
     private msg: NzMessageService,
     private newService: NewsServiceService,
-    private router: Router,
+    private route: ActivatedRoute,
     private uploadService: UploadService) { }
 
   ngOnInit() {
+    // console.log(this.articleSectionId);
     this.form = this.fb.group({
-      articleSectionId: [null, [Validators.required]],
+      articleSectionId: [1, [Validators.required]],
       articleLabels: [null, [Validators.required]],
       articleTitle: [null, [Validators.required]],
       articleContent: [null, [Validators.required]],

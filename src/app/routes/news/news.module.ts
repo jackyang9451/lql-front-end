@@ -5,6 +5,7 @@ import { NewsNewsPublishComponent } from './news-publish/news-publish.component'
 import { NewsNewsManageComponent } from './news-manage/news-manage.component';
 import { NewsEditComponent } from './edit/edit.component';
 import { NewsNewsViewComponent } from './news-view/news-view.component';
+import { NZ_MESSAGE_CONFIG } from 'ng-zorro-antd';
 
 const COMPONENTS = [
   NewsNewsPublishComponent,
@@ -17,6 +18,8 @@ const COMPONENTS_NOROUNT = [];
   imports: [
     SharedModule,
     NewsRoutingModule
+  ],
+  providers: [
   ],
   declarations: [
     ...COMPONENTS,

@@ -1,6 +1,102 @@
-<div class="alain-default__content-title">
-  <h1>
-    欢迎光临，侨胞
-    <small>Welcome !</small>
-  </h1>
-</div>
+<div>
+    <div nz-row nzType="flex" nzJustify="start">
+      <div nz-col nzSpan="24">
+          <nz-carousel nzAutoPlay>
+              <div nz-carousel-content *ngFor="let url of urls">
+                <img [src]=url alt="">
+              </div>
+          </nz-carousel>
+      </div>
+    </div>
+    <!-- <p>sub-element align center</p>
+    <div nz-row nzType="flex" nzJustify="center">
+      <div nz-col nzSpan="4">col-4</div>
+      <div nz-col nzSpan="4">col-4</div>
+      <div nz-col nzSpan="4">col-4</div>
+      <div nz-col nzSpan="4">col-4</div>
+    </div>
+    <p>sub-element align right</p>
+    <div nz-row nzType="flex" nzJustify="end">
+      <div nz-col nzSpan="4">col-4</div>
+      <div nz-col nzSpan="4">col-4</div>
+      <div nz-col nzSpan="4">col-4</div>
+      <div nz-col nzSpan="4">col-4</div>
+    </div>
+    <p>sub-element monospaced arrangement</p>
+    <div nz-row nzType="flex" nzJustify="space-between">
+      <div nz-col nzSpan="4">col-4</div>
+      <div nz-col nzSpan="4">col-4</div>
+      <div nz-col nzSpan="4">col-4</div>
+      <div nz-col nzSpan="4">col-4</div>
+    </div> -->
+    <!-- <p>sub-element align full</p> -->
+    <div nz-row nzType="flex" nzJustify="space-around" nzGutter="8" style="margin-top: 8px">
+      <div nz-col [nzSpan]="6">
+        <nz-card nzTitle="通知" [nzExtra]="extra1" nzHoverable="true">
+            <ng-template #extra1>
+                <a (click)="to()">更多</a>
+            </ng-template>
+          <nz-list [nzDataSource]="data" [nzRenderItem]="item" nzSize="small">
+            <ng-template #item let-item><nz-list-item [nzContent]="item"></nz-list-item></ng-template>
+          </nz-list>
+        </nz-card>
+      </div>
+      <div nz-col [nzSpan]="6">
+          <nz-card nzTitle="新闻" [nzExtra]="extra2">
+              <ng-template #extra2>
+                  <a >更多</a>
+                </ng-template>
+            <nz-list [nzDataSource]="data" [nzRenderItem]="item" nzSize="small">
+              <ng-template #item let-item><nz-list-item [nzContent]="item"></nz-list-item></ng-template>
+            </nz-list>
+          </nz-card>
+      </div>
+      <div nz-col [nzSpan]="6">
+          <nz-card nzTitle="项目介绍" [nzExtra]="extra3">
+              <ng-template #extra3>
+                  <a >更多</a>
+                </ng-template>
+            <nz-list [nzDataSource]="data" [nzRenderItem]="item" nzSize="small">
+              <ng-template #item let-item><nz-list-item [nzContent]="item"></nz-list-item></ng-template>
+            </nz-list>
+          </nz-card>
+      </div>
+      <div nz-col [nzSpan]="6">
+          <nz-card nzTitle="资讯" [nzExtra]="extra4">
+              <ng-template #extra4>
+                  <a (click)="to()">更多</a>
+                </ng-template>
+            <nz-list [nzDataSource]="data" [nzRenderItem]="item" nzSize="small">
+              <ng-template #item let-item><nz-list-item [nzContent]="item"></nz-list-item></ng-template>
+            </nz-list>
+          </nz-card>
+      </div>
+    </div>
+    <div nz-row nzType="flex" nzJustify="space-around">
+        <div nz-col [nzSpan]="6">
+            <nz-card nzTitle="文件" [nzExtra]="extra">
+                <ng-template #extra>
+                    <a >更多</a>
+                  </ng-template>
+              <nz-list [nzDataSource]="fileData" [nzRenderItem]="item" nzSize="small">
+                <ng-template #item let-item><nz-list-item [nzContent]="item"></nz-list-item></ng-template>
+              </nz-list>
+            </nz-card>
+        </div>
+      <div nz-col [nzSpan]="6">
+        <nz-card nzTitle="Card title">
+          <p>Card content</p>
+        </nz-card>
+      </div>
+      <div nz-col [nzSpan]="6">
+        <nz-card nzTitle="Card title">
+          <p>Card content</p>
+        </nz-card>
+      </div>
+      <div nz-col [nzSpan]="6">
+        <nz-card nzTitle="Card title">
+          <p>Card content</p>
+        </nz-card>
+      </div>
+    </div>
+  </div>

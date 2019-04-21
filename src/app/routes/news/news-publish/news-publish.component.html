@@ -1,8 +1,9 @@
 <page-header></page-header>
 <nz-card [nzBordered]="false">
+    
     <form nz-form [formGroup]="form" (ngSubmit)="submit()" se-container="1" labelWidth="200">
         <se label="板块" error="板块是必须要填写的" required>
-            <nz-select nzAllowClear nzPlaceHolder="选择一个你要发布的板块" formControlName="articleSectionId">
+            <nz-select nzAllowClear nzPlaceHolder="选择一个你要发布的板块" (ngModelChange)="select($event)" formControlName="articleSectionId">
                     <nz-option nzValue="1" nzLabel="通知"></nz-option>
                     <nz-option nzValue="2" nzLabel="新闻"></nz-option>
                     <nz-option nzValue="3" nzLabel="项目介绍"></nz-option>
@@ -18,7 +19,7 @@
             <input nz-input placeholder="输入文章的标题" formControlName="articleTitle" />
         </se>
         <se label="正文内容" error="文章内容为必填项" required>
-            <tinymce formControlName="articleContent"></tinymce>
+            <tinymce [config]="config"  formControlName="articleContent"></tinymce>
         </se>
         <se>
             <button nz-button nzType="primary" [disabled]="form.invalid" type="submit" [nzLoading]="submitting">提交</button>

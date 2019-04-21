@@ -10,25 +10,59 @@
   },
   "menu": [
     {
+      "text": "首页",
+      "group": false,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "首页",
+          "icon": "anticon anticon-team",
+          "link": "/dashboard"
+        }
+      ]
+    },
+    {
+      "text": "表单系统",
+      "group": false,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "电子表单",
+          "icon": "anticon anticon-team",
+          "children": [
+            {
+              "text": "新建表单",
+              "icon": "anticon anticon-team",
+              "link": "/auto-form/add-form"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "发布一堆东西",
+      "group": false,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "我要发布",
+          "icon": "anticon anticon-team",
+          "link": "/news/news-publish"
+        }
+      ]
+    },
+    {
       "text": "新闻公告、政策解读等发布版块",
       "group": false,
       "hideInBreadcrumb": true,
       "children": [
         {
           "text": "新闻|政策",
-          "icon": "anticon anticon-dashboard",
+          "icon": "anticon anticon-team",
           "children": [
-            {
-              "text": "我要发布",
-              "link": "/news/news-publish"
-            },
             {
               "text": "文章管理",
               "link": "/news/news-manage"
-            },
-            {
-              "text": "删除帖子",
-              "link": "/news/news-delete"
             }
           ]
         }
@@ -40,24 +74,15 @@
       "hideInBreadcrumb": true,
       "children": [
         {
-          "text": "会议报名",
-          "icon": "anticon anticon-dashboard",
+          "text": "会议",
+          "icon": "anticon anticon-team",
           "children": [
             {
-              "text": "全部会议 | 报名",
-              "link": "/meeting/sign-up"
+              "text": "发布会议",
+              "link": "/meeting/meeting-publish"
             },
             {
-              "text": "起草会议",
-              "link": "/meeting/add"
-            },
-            {
-              "text": "待审核会议",
-              "link": "/meeting/verify"
-            },
-            {
-              "text": "删除会议",
-              "link": "/meeting/delete"
+              "text": "会议报名"
             }
           ]
         }

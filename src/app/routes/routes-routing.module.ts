@@ -28,6 +28,8 @@ const routes: Routes = [
       // 业务子模块
       { path: 'news', loadChildren: './news/news.module#NewsModule' },
       { path: 'meeting', loadChildren: './meeting/meeting.module#MeetingModule' },
+      { path: 'result', loadChildren: './result/result.module#ResultModule' },
+      { path: 'auto-form', loadChildren: './auto-form/auto-form.module#AutoFormModule' },
     ]
   },
   // 全屏布局
@@ -57,7 +59,6 @@ const routes: Routes = [
     RouterModule.forRoot(
       routes, {
         useHash: environment.useHash,
-        enableTracing: true,
         // NOTICE: If you use `reuse-tab` component and turn on keepingScroll you can set to `disabled`
         // Pls refer to https://ng-alain.com/components/reuse-tab
         scrollPositionRestoration: 'top',

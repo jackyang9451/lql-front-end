@@ -1,0 +1,43 @@
+<sf  #sf mode="edit" [schema]="schema" button="none">
+    <form nz-form [formGroup]="validateForm">
+        <nz-form-item *ngFor="let control of controlArray; let i = index" style="padding-left: 50px">
+          <nz-form-label  nzRequired="true" [nzXs]="24" [nzSm]="4" *ngIf="i == 0" [nzFor]="control.controlInstance"
+           >选项</nz-form-label
+           >
+          <nz-form-control [nzXs]="24" [nzSm]="20" [nzOffset]="i == 0 ? 0 : 4">
+            <input
+              nz-input
+              style="width: 60%; margin-right:8px;"
+              placeholder="输入项目"
+              [attr.id]="control.id"
+              [formControlName]="control.controlInstance"
+            />
+            <i nz-icon type="minus-circle-o" class="dynamic-delete-button" (click)="removeField(control, $event)"></i>
+            <nz-form-explain
+              *ngIf="
+                getFormControl(control.controlInstance)?.dirty &&
+                getFormControl(control.controlInstance)?.hasError('required')
+              "
+            >
+              添加一个或者或者多个项目
+            </nz-form-explain>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item style="padding-left: 50px">
+          <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 20, offset: 4 }">
+            <button nz-button nzType="dashed" style="width:60%" (click)="addField($event)">
+              <i nz-icon type="plus"></i> 添加项目
+            </button>
+          </nz-form-control>
+        </nz-form-item>
+        <!-- <nz-form-item>
+          <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 20, offset: 4 }">
+            <button nz-button nzType="primary">Submit</button>
+          </nz-form-control>
+        </nz-form-item> -->
+      </form>
+    <div class="modal-footer">
+      <button nz-button type="button" (click)="close()">关闭</button>
+      <button nz-button type="submit" nzType="primary" (click)="save(sf.value)" [disabled]="!sf.valid" >保存</button>
+    </div>
+</sf>

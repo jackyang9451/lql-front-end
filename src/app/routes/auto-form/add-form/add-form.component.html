@@ -1,0 +1,76 @@
+<page-header [action]="phActionTpl">
+  <ng-template #phActionTpl>
+    <button (click)="add()" nz-button nzType="default">新建</button>
+  </ng-template>
+</page-header>
+<nz-card nzBordered="false">
+  <div class="gutter-box">
+    <div nz-row nzType="flex" nzJustify="space-around">
+      <div nz-col nzSpan="4">
+        <button nz-button nzType="default" (click)="sigleInput()">单行文字</button>
+      </div>
+      <div nz-col nzSpan="4">
+        <button nz-button nzType="default" (click)="multiInput()">多行文字</button>
+      </div>
+      <div nz-col nzSpan="4">
+        <button nz-button nzType="default" (click)="checkboxInput()">单项选择</button>
+      </div>
+    </div>
+  </div>
+  <div class="gutter-box">
+    <div nz-row nzType="flex" nzJustify="space-around">
+      <div nz-col nzSpan="4">
+        <nz-dropdown>
+          <button nz-button nz-dropdown>多项选择<i nz-icon type="down"></i></button>
+          <ul nz-menu>
+            <li nz-menu-item>
+              <a>2选项</a>
+            </li>
+            <li nz-menu-item>
+              <a>3选项</a>
+            </li>
+            <li nz-menu-item>
+              <a>4选项</a>
+            </li>
+          </ul>
+        </nz-dropdown>
+      </div>
+      <div nz-col nzSpan="4">
+        <button nz-button nzType="default" (click)="numberInput()">数字</button>
+      </div>
+      <div nz-col nzSpan="4">
+        <button nz-button nzType="default" (click)="phoneInput()">手机号</button>
+      </div>
+    </div>
+  </div>
+  <div class="gutter-box">
+    <div nz-row nzType="flex" nzJustify="space-around">
+      <div nz-col nzSpan="4">
+        <nz-dropdown>
+          <button nz-button nz-dropdown>下拉框<i nz-icon type="down"></i></button>
+          <ul nz-menu>
+            <li nz-menu-item>
+              <a>2选项</a>
+            </li>
+            <li nz-menu-item>
+              <a>3选项</a>
+            </li>
+            <li nz-menu-item>
+              <a>4选项</a>
+            </li>
+          </ul>
+        </nz-dropdown>
+      </div>
+      <div nz-col nzSpan="4">
+        <button nz-button nzType="default" (click)="fileInput()">上传文件</button>
+      </div>
+      <div nz-col nzSpan="4">
+        <button nz-button nzType="default" (click)="dataInput($event)">日期</button>
+      </div>
+    </div>
+  </div>
+  <!-- <st #st [data]="url" [columns]="columns"></st> -->
+</nz-card>
+<nz-card>
+  <sf *ngIf="loading" [schema]="formSchema" (formSubmit)="st.reset($event)" (formReset)="st.reset($event)"></sf>
+</nz-card>
