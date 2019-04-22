@@ -6,6 +6,8 @@ import { NzMessageService } from 'ng-zorro-antd';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UploadService } from 'app/service/upload.service';
 import { NewsServiceService } from 'app/service/news-service.service';
+import { MeetingBaseInfo } from 'app/interface/MeetingInfo';
+import { MeetingService } from 'app/service/meeting.service';
 
 @Component({
   selector: 'app-meeting-meeting-publish',
@@ -55,17 +57,22 @@ export class MeetingMeetingPublishComponent implements OnInit {
     private http: HttpClient,
     private fb: FormBuilder,
     private msg: NzMessageService,
-    private newService: NewsServiceService,
     private route: ActivatedRoute,
-    private uploadService: UploadService) { }
+    private uploadService: UploadService,
+    private meetingService: MeetingService) { }
 
   ngOnInit() {
     // console.log(this.articleSectionId);
     this.form = this.fb.group({
-      articleSectionId: [1, [Validators.required]],
-      articleLabels: [null, [Validators.required]],
-      articleTitle: [null, [Validators.required]],
-      articleContent: [null, [Validators.required]],
+      meetingName: [null , [Validators.required]],
+      meetingDate: [null, [Validators.required]],
+      meetingLocation: [null, [Validators.required]],
+      meetingCategory: [null],
+      meetingSponsor: [null, [Validators.required]],
+      meetingContact: [null, [Validators.required]],
+      meetingMobile: [null, [Validators.required]],
+      meetingEmail: [null, [Validators.email]],
+      meetingContent: [null, [Validators.required]]
     });
 
     // 初始化标签中的数据
@@ -84,17 +91,34 @@ export class MeetingMeetingPublishComponent implements OnInit {
 
   submit() {
     this.submitting = true;
-    // 究极开发偷懒方式 直接赋值哇
-    this.form.value.userId = 1; // 偷懒没有写用户模块
-    this.form.value.articleLabels = '1,2'; // 偷懒不会写标签
-    console.log(this.form.value);
-    this.newService.addArticle(this.form.value)
-    .subscribe((res: any) => {
-      if (res.status === 200) {
-        this.msg.success('提交成功,请勿重复提交');
-        this.form.reset();
-        this.submitting = false;
+    // // 究极开发偷懒方式 直接赋值哇
+    // this.form.value.userId = 1; // 偷懒没有写用户模块
+    // this.form.value.articleLabels = '1,2'; // 偷懒不会写标签
+    // const arr = this.form
+    const exValue: MeetingBaseInfo = this.form.value;
+    // for (let index in exValue.meeeingDate) {
+    //   if (+index === 0) {
+    //      exValue.meetingStart = exValue.meeeingDate[index];
+    //   } else {
+    //     exValue.meetingEnd = exValue.meeeingDate[index];
+    //   }
+    // }
+    exValue.meetingDate.map((value: any, index: number) => {
+      if (index === 0) {
+        exValue.meetingStart = value;
+      } else {
+        exValue.meetingEnd = value;
       }
+      delete exValue.meetingDate;
     });
+    console.log(exValue);
+    // this.newService.addArticle(this.form.value)
+    // .subscribe((res: any) => {
+    //   if (res.status === 200) {
+    //     this.msg.success('提交成功,请勿重复提交');
+    //     this.form.reset();
+    //     this.submitting = false;
+    //   }
+    // });
   }
 }

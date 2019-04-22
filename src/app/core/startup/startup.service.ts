@@ -81,7 +81,9 @@ export class StartupService {
        // 初始化菜单
        this.menuService.add(res.menu);
        // 设置页面标题的后缀
-       this.titleService.suffix = res.app.name; },
+       this.titleService.suffix = res.app.name;
+       // 折叠菜
+       this.settingService.layout.collapsed = true; },
        () => { },
        () => {
          resolve();

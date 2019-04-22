@@ -1,0 +1,31 @@
+[{
+  "text": "表单系统",
+  "group": false,
+  "hideInBreadcrumb": true,
+  "children": [
+    {
+      "text": "电子表单",
+      "icon": "anticon anticon-team",
+      "children": [
+        {
+          "text": "新建表单",
+          "icon": "anticon anticon-team",
+          "link": "/auto-form/add-form"
+        }
+      ]
+    }
+  ]
+},
+{
+  "text": "发布一堆东西",
+  "group": false,
+  "hideInBreadcrumb": true,
+  "children": [
+    {
+      "text": "我要发布",
+      "icon": "anticon anticon-team",
+      "link": "/news/news-publish"
+    }
+  ]
+}
+]

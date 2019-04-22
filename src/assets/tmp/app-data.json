@@ -22,24 +22,6 @@
       ]
     },
     {
-      "text": "表单系统",
-      "group": false,
-      "hideInBreadcrumb": true,
-      "children": [
-        {
-          "text": "电子表单",
-          "icon": "anticon anticon-team",
-          "children": [
-            {
-              "text": "新建表单",
-              "icon": "anticon anticon-team",
-              "link": "/auto-form/add-form"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "text": "发布一堆东西",
       "group": false,
       "hideInBreadcrumb": true,
@@ -52,39 +34,50 @@
       ]
     },
     {
-      "text": "新闻公告、政策解读等发布版块",
+      "text": "通知",
       "group": false,
       "hideInBreadcrumb": true,
       "children": [
         {
-          "text": "新闻|政策",
+          "text": "通知",
           "icon": "anticon anticon-team",
-          "children": [
-            {
-              "text": "文章管理",
-              "link": "/news/news-manage"
-            }
-          ]
+          "link": "/news/news-manage"
         }
       ]
     },
     {
-      "text": "会议报名系统",
+      "text": "新闻",
       "group": false,
       "hideInBreadcrumb": true,
       "children": [
         {
-          "text": "会议",
+          "text": "新闻",
           "icon": "anticon anticon-team",
-          "children": [
-            {
-              "text": "发布会议",
-              "link": "/meeting/meeting-publish"
-            },
-            {
-              "text": "会议报名"
-            }
-          ]
+          "link": ""
+        }
+      ]
+    },
+    {
+      "text": "项目提供",
+      "group": false,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "项目提供",
+          "icon": "anticon anticon-team",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "text": "寻找项目",
+      "group": false,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "寻找项目",
+          "icon": "anticon anticon-team",
+          "link": ""
         }
       ]
     },
@@ -94,93 +87,9 @@
       "hideInBreadcrumb": true,
       "children": [
         {
-          "text": "文件列表",
-          "icon": "anticon anticon-dashboard",
-          "children": [
-            {
-              "text": "资料审核",
-              "link": "/dashboard/v1"
-            },
-            {
-              "text": "上传发布",
-              "link": "/dashboard/analysis"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "text": "项目供需发布合作系统",
-      "group": false,
-      "hideInBreadcrumb": true,
-      "children": [
-        {
-          "text": "项目供需合作",
-          "icon": "anticon anticon-dashboard",
-          "children": [
-            {
-              "text": "我要发布",
-              "link": "/dashboard/v1"
-            },
-            {
-              "text": "待审核文章",
-              "link": "/dashboard/analysis"
-            },
-            {
-              "text": "删除帖子",
-              "link": "/dashboard/monitor"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "text": "文件传输系统",
-      "group": false,
-      "hideInBreadcrumb": true,
-      "children": [
-        {
-          "text": "发送文件",
-          "icon": "anticon anticon-dashboard",
-          "children": [
-            {
-              "text": "我要发布",
-              "link": "/dashboard/v1"
-            },
-            {
-              "text": "待审核文章",
-              "link": "/dashboard/analysis"
-            },
-            {
-              "text": "删除帖子",
-              "link": "/dashboard/monitor"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "text": "新闻公告、政策解读等发布版块",
-      "group": false,
-      "hideInBreadcrumb": true,
-      "children": [
-        {
-          "text": "新闻|政策",
-          "icon": "anticon anticon-dashboard",
-          "children": [
-            {
-              "text": "我要发布",
-              "link": "/dashboard/v1"
-            },
-            {
-              "text": "待审核文章",
-              "link": "/dashboard/analysis"
-            },
-            {
-              "text": "删除帖子",
-              "link": "/dashboard/monitor"
-            }
-          ]
+          "text": "资料共享",
+          "icon": "anticon anticon-team",
+          "link": ""
         }
       ]
     }
