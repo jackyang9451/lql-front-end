@@ -6,15 +6,17 @@
             <nz-select nzAllowClear nzPlaceHolder="选择一个你要发布的板块" (ngModelChange)="select($event)" formControlName="articleSectionId">
                     <nz-option nzValue="1" nzLabel="通知"></nz-option>
                     <nz-option nzValue="2" nzLabel="新闻"></nz-option>
-                    <nz-option nzValue="3" nzLabel="项目介绍"></nz-option>
-                    <nz-option nzValue="4" nzLabel="资讯"></nz-option>
+                    <nz-option nzValue="3" nzLabel="项目提供"></nz-option>
+                    <nz-option nzValue="4" nzLabel="寻找项目"></nz-option>
+                    <!-- <nz-option nzValue="5" nzLabel="会议"></nz-option> -->
+                    <nz-option nzValue="6" nzLabel="资料共享"></nz-option>
             </nz-select>
         </se>
-        <se label="标签" error="输入一些标签让大家更了解你的内容" required>
+        <!-- <se label="标签" error="输入一些标签让大家更了解你的内容" required>
             <nz-select nzMode="tags" nzPlaceHolder="输入自定义的标签然后选择" formControlName="articleLabels">
                 <nz-option *ngFor="let option of listOfOption" [nzLabel]="option.label" [nzValue]="option.value"> </nz-option>
             </nz-select>
-        </se>
+        </se> -->
         <se label="文章标题" error="取一个响亮的名字" required>
             <input nz-input placeholder="输入文章的标题" formControlName="articleTitle" />
         </se>

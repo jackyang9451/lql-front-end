@@ -4,7 +4,7 @@ import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 // import { ArticleInformation } from '../../../interface/ArticleInformation'
 import { NzMessageService } from 'ng-zorro-antd';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NewsServiceService } from 'app/service/news-service.service';
+import { InfoService } from 'app/service/Info.service';
 import { Router } from '@angular/router';
 import { UploadService } from 'app/service/upload.service';
 
@@ -54,14 +54,14 @@ export class NewsNewsPublishComponent implements OnInit {
     private http: HttpClient,
     private fb: FormBuilder,
     private msg: NzMessageService,
-    private newService: NewsServiceService,
+    private infoService: InfoService,
     private router: Router,
     private uploadService: UploadService) { }
 
   ngOnInit() {
     this.form = this.fb.group({
       articleSectionId: [null, [Validators.required]],
-      articleLabels: [null, [Validators.required]],
+      // articleLabels: [null, [Validators.required]],
       articleTitle: [null, [Validators.required]],
       articleContent: [null, [Validators.required]],
     });
@@ -86,7 +86,7 @@ export class NewsNewsPublishComponent implements OnInit {
     this.form.value.userId = 1; // 偷懒没有写用户模块
     this.form.value.articleLabels = '1,2'; // 偷懒不会写标签
     console.log(this.form.value);
-    this.newService.addArticle(this.form.value)
+    this.infoService.addArticle(this.form.value)
     .subscribe((res: any) => {
       if (res.status === 200) {
         this.msg.success('提交成功,请勿重复提交');

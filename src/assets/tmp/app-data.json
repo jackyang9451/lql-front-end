@@ -22,6 +22,18 @@
       ]
     },
     {
+      "text": "电子表单",
+      "group": false,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "电子表单",
+          "icon": {"type": "icon", "value": "table"},
+          "link": "/auto-form/add-form"
+        }
+      ]
+    },
+    {
       "text": "发布一堆东西",
       "group": false,
       "hideInBreadcrumb": true,
@@ -41,7 +53,7 @@
         {
           "text": "通知",
           "icon": {"type": "icon", "value": "notification"},
-          "link": "/news/news-manage"
+          "link": "/info/view/1"
         }
       ]
     },
@@ -53,31 +65,31 @@
         {
           "text": "新闻",
           "icon": {"type": "icon", "value": "global"},
-          "link": ""
+          "link": "/info/view/2"
         }
       ]
     },
     {
-      "text": "项目提供",
+      "text": "项目介绍",
       "group": false,
       "hideInBreadcrumb": true,
       "children": [
         {
           "text": "项目提供",
           "icon": {"type": "icon", "value": "project"},
-          "link": ""
+          "link": "/info/view/3"
         }
       ]
     },
     {
-      "text": "寻找项目",
+      "text": "资讯",
       "group": false,
       "hideInBreadcrumb": true,
       "children": [
         {
           "text": "寻找项目",
           "icon": {"type": "icon", "value": "team"},
-          "link": ""
+          "link": "/info/view/5"
         }
       ]
     },
@@ -89,19 +101,7 @@
         {
           "text": "资料共享",
           "icon": {"type": "icon", "value": "file"},
-          "link": ""
-        }
-      ]
-    },
-    {
-      "text": "审核",
-      "group": false,
-      "hideInBreadcrumb": true,
-      "children": [
-        {
-          "text": "审核",
-          "icon": {"type": "icon", "value": "safety-certificate"},
-          "link": ""
+          "link": "/info/view/6"
         }
       ]
     },
@@ -113,7 +113,7 @@
         {
           "text": "文章管理",
           "icon": {"type": "icon", "value": "database"},
-          "link": ""
+          "link": "admin/adminArticle"
         }
       ]
     },

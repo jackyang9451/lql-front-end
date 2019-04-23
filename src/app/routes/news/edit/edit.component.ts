@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import { NzMessageService } from 'ng-zorro-antd';
 import { _HttpClient } from '@delon/theme';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { NewsServiceService } from 'app/service/news-service.service';
+import { InfoService } from 'app/service/Info.service';
 
 @Component({
   selector: 'app-news-edit',
@@ -27,14 +27,14 @@ export class NewsEditComponent implements OnInit {
     public location: Location,
     private msgSrv: NzMessageService,
     public http: _HttpClient,
-    private newService: NewsServiceService,
+    private infoService: InfoService,
     private fb: FormBuilder,
     private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
     // console.log(this.param.id);
-    this.newService.getArticleById(this.id)
+    this.infoService.getArticleById(this.id)
     .subscribe((res: any) => {
       this.updateName(res.result);
     });
@@ -73,7 +73,7 @@ export class NewsEditComponent implements OnInit {
     this.form.value.articleLabels = '1,2'; // 偷懒不会写标签
     this.form.value.id = this.id;
     console.log(this.form.value);
-    this.newService.modifyArticle(this.form.value)
+    this.infoService.modifyArticle(this.form.value)
     .subscribe((res: any) => {
       console.log(res);
       if (res.status === 200) {

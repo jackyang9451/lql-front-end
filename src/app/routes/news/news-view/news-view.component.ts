@@ -1,10 +1,10 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { _HttpClient } from '@delon/theme';
 import { ActivatedRoute } from '@angular/router';
-import { NewsServiceService } from 'app/service/news-service.service';
 import { Location } from '@angular/common';
 import { STColumn } from '@delon/abc';
 import { NzMessageService, NzTabChangeEvent } from 'ng-zorro-antd';
+import { InfoService } from 'app/service/Info.service';
 
 @Component({
   selector: 'app-news-news-view',
@@ -25,12 +25,12 @@ export class NewsNewsViewComponent implements OnInit {
     private http: _HttpClient,
     private route: ActivatedRoute,
     private location: Location,
-    private newsService: NewsServiceService,
+    private infoService: InfoService,
     private cdr: ChangeDetectorRef
     ) { }
 
     ngOnInit() {
-      this.newsService.getArticleById(this.id)
+      this.infoService.getArticleById(this.id)
       .subscribe((res: any) => {
         this.articleData = res.result;
         console.log(res);

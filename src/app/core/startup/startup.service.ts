@@ -68,7 +68,7 @@ export class StartupService {
     //   return;
     // }
     // mock
-    this.httpClient.get('assets/tmp/app-data.json')
+    this.httpClient.get('http://localhost:4200/assets/tmp/app-data.json')
     .subscribe(appData => {
        // application data
        const res: any = appData;

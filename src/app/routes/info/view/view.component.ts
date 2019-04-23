@@ -1,54 +1,64 @@
 import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { _HttpClient, ModalHelper } from '@delon/theme';
+import { STColumn, STComponent } from '@delon/abc';
+import { SFSchema } from '@delon/form';
 import { NzMessageService } from 'ng-zorro-antd';
-import { Router } from '@angular/router';
 import { InfoService } from 'app/service/Info.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap, map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-news-news-manage',
-  templateUrl: './news-manage.component.html',
+  selector: 'app-info-view',
+  templateUrl: './view.component.html',
 })
-export class NewsNewsManageComponent implements OnInit {
+export class InfoViewComponent implements OnInit {
   q: any = {
     status: 'all',
   };
   loading = false;
-  data: any[] = []; // 新闻的全体
+  data: any; // 该类别文章的全体
   total: number; // 新闻的总数
-  pageSize = 7;     // 默认每页的数量
-  currentPageNum = 1; // 这里需要初始化为1 可能是个BUG
-
+  pageSize = 7;  // 默认一页多少个
+  currentPageNum: any; // 当前页数
+  articleSectionId: number; // 当前板块的ID
   constructor(
     private http: _HttpClient,
     public msg: NzMessageService,
     private modal: ModalHelper,
     private cdr: ChangeDetectorRef,
     private router: Router,
-    private infoService: InfoService
+    private infoService: InfoService,
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit() {
-    this.getDataByPage(1);
+    this.route.paramMap
+    .pipe(
+      switchMap((params: ParamMap) => {
+        this.articleSectionId = +params.get('sectionId');
+        return this.infoService.getInfoByArticleSectionId(+params.get('sectionId'));
+      }),
+      map((res: any) => [res.result.rows, res.result.total])
+    ).subscribe(
+      ([rows, total]) => {
+        this.data = rows;
+        this.total = total;
+      }
+    );
   }
 
-  getData() {
-    this.loading = true;
-    this.infoService.getArticleAll().subscribe((res: any) => {
-      this.data = res.rows;
-      this.total = res.total;
-      this.loading = false;
-      this.cdr.detectChanges();
-    });
-  }
   // &event 是改变以后的值
   getDataByPage(pageNum: any) {
-    this.infoService.getArticlePagination(pageNum, this.pageSize)
-    .subscribe((res: any) => {
-      this.data = res.result.rows;
-      this.total = res.result.total;
+    this.infoService.getInfoByArticleSectionId(this.articleSectionId, undefined, pageNum)
+    .pipe(
+      map((res: any) => [res.result.rows, res.result.total])
+    )
+    .subscribe( ([rows, total]) => {
+      this.data = rows;
+      this.total = total;
       this.loading = false;
       this.cdr.detectChanges();
-    });
+    } );
   }
   openEdit(record: any = {}) {
     // 使用非模态框进行操作
@@ -77,7 +87,6 @@ export class NewsNewsManageComponent implements OnInit {
           // 不要使用remove方法 你被骗了 remove是移除全局提醒用的
           this.msg.error('删除成功');
           this.getDataByPage(this.currentPageNum);
-
         }
       }
     );

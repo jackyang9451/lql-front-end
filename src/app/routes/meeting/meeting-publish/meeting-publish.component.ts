@@ -5,7 +5,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UploadService } from 'app/service/upload.service';
-import { NewsServiceService } from 'app/service/news-service.service';
+import { InfoService } from 'app/service/Info.service';
 import { MeetingBaseInfo } from 'app/interface/MeetingInfo';
 import { MeetingService } from 'app/service/meeting.service';
 
