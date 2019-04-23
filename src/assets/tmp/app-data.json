@@ -16,7 +16,7 @@
       "children": [
         {
           "text": "首页",
-          "icon": "anticon anticon-team",
+          "icon": {"type": "icon", "value": "home"},
           "link": "/dashboard"
         }
       ]
@@ -28,7 +28,7 @@
       "children": [
         {
           "text": "我要发布",
-          "icon": "anticon anticon-team",
+          "icon": {"type": "icon", "value": "form"},
           "link": "/news/news-publish"
         }
       ]
@@ -40,7 +40,7 @@
       "children": [
         {
           "text": "通知",
-          "icon": "anticon anticon-team",
+          "icon": {"type": "icon", "value": "notification"},
           "link": "/news/news-manage"
         }
       ]
@@ -52,7 +52,7 @@
       "children": [
         {
           "text": "新闻",
-          "icon": "anticon anticon-team",
+          "icon": {"type": "icon", "value": "global"},
           "link": ""
         }
       ]
@@ -64,7 +64,7 @@
       "children": [
         {
           "text": "项目提供",
-          "icon": "anticon anticon-team",
+          "icon": {"type": "icon", "value": "project"},
           "link": ""
         }
       ]
@@ -76,7 +76,7 @@
       "children": [
         {
           "text": "寻找项目",
-          "icon": "anticon anticon-team",
+          "icon": {"type": "icon", "value": "team"},
           "link": ""
         }
       ]
@@ -88,7 +88,43 @@
       "children": [
         {
           "text": "资料共享",
-          "icon": "anticon anticon-team",
+          "icon": {"type": "icon", "value": "file"},
+          "link": ""
+        }
+      ]
+    },
+    {
+      "text": "审核",
+      "group": false,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "审核",
+          "icon": {"type": "icon", "value": "safety-certificate"},
+          "link": ""
+        }
+      ]
+    },
+    {
+      "text": "文章管理",
+      "group": false,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "文章管理",
+          "icon": {"type": "icon", "value": "database"},
+          "link": ""
+        }
+      ]
+    },
+    {
+      "text": "用户管理",
+      "group": false,
+      "hideInBreadcrumb": true,
+      "children": [
+        {
+          "text": "用户管理",
+          "icon": {"type": "icon", "value": "idcard"},
           "link": ""
         }
       ]
