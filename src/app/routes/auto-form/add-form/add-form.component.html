@@ -1,6 +1,6 @@
 <page-header [action]="phActionTpl">
   <ng-template #phActionTpl>
-    <button (click)="add()" nz-button nzType="default">新建</button>
+    <button (click)="formTest()" nz-button nzType="default">新建</button>
   </ng-template>
 </page-header>
 <nz-card nzBordered="false">
@@ -72,5 +72,5 @@
   <!-- <st #st [data]="url" [columns]="columns"></st> -->
 </nz-card>
 <nz-card>
-  <sf *ngIf="loading" [schema]="formSchema" (formSubmit)="st.reset($event)" (formReset)="st.reset($event)"></sf>
+  <sf *ngIf="loading" [schema]="formSchema" ></sf>
 </nz-card>

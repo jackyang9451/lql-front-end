@@ -4,9 +4,11 @@ import { AutoFormRoutingModule } from './auto-form-routing.module';
 import { AutoFormAddFormComponent } from './add-form/add-form.component';
 import { AutoFormAddFormEditSomeComponent } from './add-form/edit-some/edit-some.component';
 import { AutoFormAddFormEditMulitComponent } from './add-form/edit-mulit/edit-mulit.component';
+import { AutoFormFormTestComponent } from './form-test/form-test.component';
 
 const COMPONENTS = [
-  AutoFormAddFormComponent];
+  AutoFormAddFormComponent,
+  AutoFormFormTestComponent];
 const COMPONENTS_NOROUNT = [
   AutoFormAddFormEditSomeComponent,
   AutoFormAddFormEditMulitComponent];

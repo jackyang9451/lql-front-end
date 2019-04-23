@@ -4,6 +4,7 @@ import { STColumn, STComponent } from '@delon/abc';
 import { SFSchema } from '@delon/form';
 import { AutoFormAddFormEditSomeComponent } from './edit-some/edit-some.component';
 import { AutoFormAddFormEditMulitComponent } from './edit-mulit/edit-mulit.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auto-form-add-form',
@@ -44,7 +45,8 @@ export class AutoFormAddFormComponent implements OnInit {
   constructor(
     private http: _HttpClient,
     private modal: ModalHelper,
-    private cdr: ChangeDetectorRef) { }
+    private cdr: ChangeDetectorRef,
+    private router: Router) { }
 
   ngOnInit() {
     this.nameDate = new Date();
@@ -206,6 +208,12 @@ export class AutoFormAddFormComponent implements OnInit {
     if (isRequired) {
       this.formSchema.required = [ ...this.formSchema.required, lableName ];
     }
+  }
+  /**
+   * 测试填写
+   */
+  formTest() {
+    this.router.navigate(['/auto-form/form-test', { i: JSON.stringify(this.formSchema) }]);
   }
 
 }

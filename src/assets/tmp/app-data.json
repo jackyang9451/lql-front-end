@@ -4,7 +4,7 @@
     "description": "留侨联系统"
   },
   "user": {
-    "name": "余本国",
+    "name": "杨哥帅过吴彦祖",
     "avatar": "./assets/tmp/img/1.png",
     "email": "yubg@nuc.edu.cn"
   },
@@ -29,7 +29,17 @@
         {
           "text": "电子表单",
           "icon": {"type": "icon", "value": "table"},
-          "link": "/auto-form/add-form"
+          "link": "/auto-form/add-form",
+          "children": [
+            {
+              "text": "设计表单",
+              "link": "/auto-form/add-form"
+            },
+            {
+              "text": "测试填写表单",
+              "link": "/auto-form/form-test"
+            }
+          ]
         }
       ]
     },
