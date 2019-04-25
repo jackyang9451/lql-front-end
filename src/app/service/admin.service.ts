@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { _HttpClient } from '@delon/theme';
+import { ArticleQueryParam } from 'app/interface/ArticleQueryParam';
 
 @Injectable({
   providedIn: 'root'
@@ -20,13 +21,10 @@ export class AdminService {
   /**
    * 分页查看文章
    */
-  getArticlePagination(num: number, size = 7) {
+  getArticlePagination(param: ArticleQueryParam) {
     return this.http.get(
       'lql/article',
-      {
-        pageNum: num,
-        pageSize: size
-      },
+      param
     );
   }
   /**

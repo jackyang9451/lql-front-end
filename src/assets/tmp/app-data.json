@@ -63,19 +63,19 @@
       "hideInBreadcrumb": true,
       "children": [
         {
-          "text": "项目提供",
+          "text": "项目介绍",
           "icon": {"type": "icon", "value": "project"},
           "link": "/info/view2/3"
         }
       ]
     },
     {
-      "text": "资讯",
+      "text": "咨询",
       "group": false,
       "hideInBreadcrumb": true,
       "children": [
         {
-          "text": "寻找项目",
+          "text": "咨询",
           "icon": {"type": "icon", "value": "team"},
           "link": "/info/view2/4"
         }

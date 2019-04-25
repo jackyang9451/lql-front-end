@@ -1,5 +1,4 @@
-<div>
-    <div nz-row nzType="flex" nzJustify="start">
+<div nz-row nzType="flex" nzJustify="start">
       <div nz-col nzSpan="24">
           <nz-carousel nzAutoPlay>
               <div nz-carousel-content *ngFor="let url of urls">
@@ -7,7 +6,7 @@
               </div>
           </nz-carousel>
       </div>
-    </div>
+</div>
     <!-- <p>sub-element align center</p>
     <div nz-row nzType="flex" nzJustify="center">
       <div nz-col nzSpan="4">col-4</div>
@@ -32,58 +31,106 @@
     <!-- <p>sub-element align full</p> -->
     <div nz-row nzType="flex" nzJustify="space-around" nzGutter="8" style="margin-top: 8px">
       <div nz-col [nzSpan]="6">
-        <nz-card nzTitle="通知" [nzExtra]="extra1" nzHoverable="true">
-            <ng-template #extra1>
-                <a (click)="to()">更多</a>
-            </ng-template>
-          <nz-list [nzDataSource]="data" [nzRenderItem]="item" nzSize="small">
-            <ng-template #item let-item><nz-list-item [nzContent]="item"></nz-list-item></ng-template>
-          </nz-list>
-        </nz-card>
+          <nz-card nzTitle="通知" [nzExtra]="extra1">
+              <ng-template #extra1>
+                  <a (click)="to1()">更多</a>
+              </ng-template>
+            <nz-list [nzDataSource]="list1" [nzRenderItem]="item1" nzSize="small" style="width: 100%; height: 300px;">
+              <ng-template #item1 let-item>
+                <nz-list-item [nzContent]="content">
+                  <ng-template #content>
+                      <a [routerLink]="['/news/news-view/', item.id]">{{item.articleTitle}}</a>
+                  </ng-template>
+                </nz-list-item>
+              </ng-template>
+            </nz-list>
+          </nz-card>
       </div>
+      
       <div nz-col [nzSpan]="6">
           <nz-card nzTitle="新闻" [nzExtra]="extra2">
               <ng-template #extra2>
-                  <a >更多</a>
-                </ng-template>
-            <nz-list [nzDataSource]="data" [nzRenderItem]="item" nzSize="small">
-              <ng-template #item let-item><nz-list-item [nzContent]="item"></nz-list-item></ng-template>
+                  <a (click)="to2()">更多</a>
+              </ng-template>
+            <nz-list [nzDataSource]="list2" [nzRenderItem]="item2" nzSize="small" style="width: 100%; height: 300px;">
+              <ng-template #item2 let-item>
+                  <nz-list-item [nzContent]="content">
+                      <ng-template #content>
+                          <a [routerLink]="['/news/news-view/', item.id]">{{item.articleTitle}}</a>
+                      </ng-template>
+                  </nz-list-item>
+              </ng-template>
             </nz-list>
           </nz-card>
       </div>
       <div nz-col [nzSpan]="6">
           <nz-card nzTitle="项目介绍" [nzExtra]="extra3">
               <ng-template #extra3>
-                  <a >更多</a>
-                </ng-template>
-            <nz-list [nzDataSource]="data" [nzRenderItem]="item" nzSize="small">
-              <ng-template #item let-item><nz-list-item [nzContent]="item"></nz-list-item></ng-template>
+                  <a (click)="to3()">更多</a>
+              </ng-template>
+            <nz-list [nzDataSource]="list3" [nzRenderItem]="item3" nzSize="small" style="width: 100%; height: 300px;">
+              <ng-template #item3 let-item>
+                  <nz-list-item [nzContent]="content">
+                      <ng-template #content>
+                          <a [routerLink]="['/news/news-view/', item.id]">{{item.articleTitle}}</a>
+                      </ng-template>
+                  </nz-list-item>
+              </ng-template>
             </nz-list>
           </nz-card>
       </div>
       <div nz-col [nzSpan]="6">
           <nz-card nzTitle="资讯" [nzExtra]="extra4">
               <ng-template #extra4>
-                  <a (click)="to()">更多</a>
-                </ng-template>
-            <nz-list [nzDataSource]="data" [nzRenderItem]="item" nzSize="small">
-              <ng-template #item let-item><nz-list-item [nzContent]="item"></nz-list-item></ng-template>
+                  <a (click)="to4()">更多</a>
+              </ng-template>
+            <nz-list [nzDataSource]="list4" [nzRenderItem]="item4" nzSize="small" style="width: 100%; height: 300px;">
+              <ng-template #item4 let-item>
+                  <nz-list-item [nzContent]="content">
+                      <ng-template #content>
+                          <a [routerLink]="['/news/news-view/', item.id]">{{item.articleTitle}}</a>
+                      </ng-template>
+                  </nz-list-item>
+              </ng-template>
             </nz-list>
           </nz-card>
       </div>
     </div>
     <div nz-row nzType="flex" nzJustify="space-around">
-        <div nz-col [nzSpan]="6">
-            <nz-card nzTitle="文件" [nzExtra]="extra">
-                <ng-template #extra>
-                    <a >更多</a>
-                  </ng-template>
-              <nz-list [nzDataSource]="fileData" [nzRenderItem]="item" nzSize="small">
-                <ng-template #item let-item><nz-list-item [nzContent]="item"></nz-list-item></ng-template>
-              </nz-list>
-            </nz-card>
-        </div>
       <div nz-col [nzSpan]="6">
+          <nz-card nzTitle="会议" [nzExtra]="extra5">
+              <ng-template #extra5>
+                  <a (click)="to5()">更多</a>
+              </ng-template>
+            <nz-list [nzDataSource]="list5" [nzRenderItem]="item5" nzSize="small" style="width: 100%; height: 300px;">
+              <ng-template #item5 let-item>
+                  <nz-list-item [nzContent]="content">
+                      <ng-template #content>
+                          <a [routerLink]="['/news/news-view/', item.id]">{{item.articleTitle}}</a>
+                      </ng-template>
+                  </nz-list-item>
+              </ng-template>
+            </nz-list>
+          </nz-card>
+      </div>
+      <div nz-col [nzSpan]="6">
+          <nz-card nzTitle="文件" [nzExtra]="extra6">
+              <ng-template #extra6>
+                  <a (click)="to6()">更多</a>
+              </ng-template>
+            <nz-list [nzDataSource]="list6" [nzRenderItem]="item6" nzSize="small" style="width: 100%; height: 300px;">
+              <ng-template #item6 let-item>
+                  <nz-list-item [nzContent]="content">
+                      <ng-template #content>
+                          <a [routerLink]="['/news/news-view/', item.id]">{{item.articleTitle}}</a>
+                      </ng-template>
+                  </nz-list-item>
+              </ng-template>
+            </nz-list>
+          </nz-card>
+      </div>
+      <!-- 预留 -->
+      <!-- <div nz-col [nzSpan]="6">
         <nz-card nzTitle="Card title">
           <p>Card content</p>
         </nz-card>
@@ -92,11 +139,5 @@
         <nz-card nzTitle="Card title">
           <p>Card content</p>
         </nz-card>
-      </div>
-      <div nz-col [nzSpan]="6">
-        <nz-card nzTitle="Card title">
-          <p>Card content</p>
-        </nz-card>
-      </div>
+      </div> -->
     </div>
-  </div>

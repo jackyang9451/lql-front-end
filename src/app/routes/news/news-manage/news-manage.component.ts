@@ -43,7 +43,7 @@ export class NewsNewsManageComponent implements OnInit {
   // &event 是改变以后的值
   getDataByPage(pageNum: any) {
     this.infoService.getArticlePagination(pageNum, this.pageSize)
-    .subscribe((res: any) => {
+    .subscribe( (res: any) => {
       this.data = res.result.rows;
       this.total = res.result.total;
       this.loading = false;

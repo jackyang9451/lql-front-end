@@ -17,7 +17,7 @@ export class InfoService {
   /**
    * 根据articleSectionId查询指定板块的信息 分页查询
    */
-  getInfoByArticleSectionId(param: ArticleQueryParam) {
+  getInfoNormal(param: ArticleQueryParam) {
     const optionalUrl = 'lql/article';
     console.log(param);
     return this.http.get(

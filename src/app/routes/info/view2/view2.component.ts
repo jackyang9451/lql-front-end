@@ -13,7 +13,7 @@ import { ArticleQueryParam } from 'app/interface/ArticleQueryParam';
 })
 export class InfoView2Component implements OnInit {
   q: any = {
-    ps: 7,
+    ps: 6,
     categories: [],
     owners: ['zxx'],
   };
@@ -100,9 +100,10 @@ export class InfoView2Component implements OnInit {
   getData(pageNum: number) {
     this.loading = true;
     // 使用虚拟数据先凑活着
+    // const
     const param = new ArticleQueryParam(this.articleSectionId, pageNum);
     zip(
-      this.infoService.getInfoByArticleSectionId(param),
+      this.infoService.getInfoNormal(param),
       this.http.get('/api/list', { count: this.q.ps })
     )
     .pipe(

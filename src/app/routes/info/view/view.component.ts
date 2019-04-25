@@ -32,33 +32,33 @@ export class InfoViewComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.paramMap
-    .pipe(
-      switchMap((params: ParamMap) => {
-        this.articleSectionId = +params.get('sectionId');
-        return this.infoService.getInfoByArticleSectionId(+params.get('sectionId'));
-      }),
-      map((res: any) => [res.result.rows, res.result.total])
-    ).subscribe(
-      ([rows, total]) => {
-        this.data = rows;
-        this.total = total;
-      }
-    );
+    // this.route.paramMap
+    // .pipe(
+    //   switchMap((params: ParamMap) => {
+    //     this.articleSectionId = +params.get('sectionId');
+    //     return this.infoService.getInfoNormal(+params.get('sectionId'));
+    //   }),
+    //   map((res: any) => [res.result.rows, res.result.total])
+    // ).subscribe(
+    //   ([rows, total]) => {
+    //     this.data = rows;
+    //     this.total = total;
+    //   }
+    // );
   }
 
   // &event 是改变以后的值
   getDataByPage(pageNum: any) {
-    this.infoService.getInfoByArticleSectionId(this.articleSectionId, undefined, pageNum)
-    .pipe(
-      map((res: any) => [res.result.rows, res.result.total])
-    )
-    .subscribe( ([rows, total]) => {
-      this.data = rows;
-      this.total = total;
-      this.loading = false;
-      this.cdr.detectChanges();
-    } );
+    // this.infoService.getInfoNormal(this.articleSectionId, undefined, pageNum)
+    // .pipe(
+    //   map((res: any) => [res.result.rows, res.result.total])
+    // )
+    // .subscribe( ([rows, total]) => {
+    //   this.data = rows;
+    //   this.total = total;
+    //   this.loading = false;
+    //   this.cdr.detectChanges();
+    // } );
   }
   openEdit(record: any = {}) {
     // 使用非模态框进行操作

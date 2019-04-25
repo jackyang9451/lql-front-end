@@ -5,7 +5,7 @@ export class ArticleQueryParam {
   public sortField;
   public sortOrder;
 
-  constructor(articleSectionId, pageNum, pageSize = 7, sortField = 'id', sortOrder = 'descend') {
+  constructor(articleSectionId, pageNum, pageSize = 6, sortField = 'id', sortOrder = 'descend') {
     this.articleSectionId = articleSectionId;
     this.pageNum = pageNum;
     this.pageSize = pageSize;

@@ -5,6 +5,7 @@ import { NzMessageService } from 'ng-zorro-antd';
 import { _HttpClient } from '@delon/theme';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { InfoService } from 'app/service/Info.service';
+import { UploadService } from 'app/service/upload.service';
 
 @Component({
   selector: 'app-news-edit',
@@ -20,8 +21,9 @@ export class NewsEditComponent implements OnInit {
   listOfTagOptions = [];
   // 传过来的文章ID
   id = this.route.snapshot.paramMap.get('id');
-   // tinymce自定义化配置
-   config = {
+
+  // tinymce自定义化配置
+  config = {
     file_picker_callback: (callback, value, meta) => {
       // Provide image and alt text for the image dialog
       if (meta.filetype === 'image') {
@@ -50,11 +52,11 @@ export class NewsEditComponent implements OnInit {
     // }
   };
   article: any;
-  uploadService: any;
   constructor(
     private route: ActivatedRoute,
     public location: Location,
     private msgSrv: NzMessageService,
+    private uploadService: UploadService,
     public http: _HttpClient,
     private infoService: InfoService,
     private fb: FormBuilder,
