@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '@shared';
 import { InfoRoutingModule } from './info-routing.module';
 import { InfoViewComponent } from './view/view.component';
+import { InfoView2Component } from './view2/view2.component';
 
 const COMPONENTS = [
-  InfoViewComponent];
+  InfoViewComponent,
+  InfoView2Component];
 const COMPONENTS_NOROUNT = [];
 
 @NgModule({

@@ -24,6 +24,8 @@ export class InfoService {
         articleSectionId: sectionId,
         pageSize: size,
         pageNum: num,
+        sortField: 'id',
+        sortOrder: 'descend'
       }
     );
   }

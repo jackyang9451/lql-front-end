@@ -22,28 +22,6 @@
       ]
     },
     {
-      "text": "电子表单",
-      "group": false,
-      "hideInBreadcrumb": true,
-      "children": [
-        {
-          "text": "电子表单",
-          "icon": {"type": "icon", "value": "table"},
-          "link": "/auto-form/add-form",
-          "children": [
-            {
-              "text": "设计表单",
-              "link": "/auto-form/add-form"
-            },
-            {
-              "text": "测试填写表单",
-              "link": "/auto-form/form-test"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "text": "发布一堆东西",
       "group": false,
       "hideInBreadcrumb": true,
@@ -63,7 +41,7 @@
         {
           "text": "通知",
           "icon": {"type": "icon", "value": "notification"},
-          "link": "/info/view/1"
+          "link": "/info/view2/1"
         }
       ]
     },
@@ -75,7 +53,7 @@
         {
           "text": "新闻",
           "icon": {"type": "icon", "value": "global"},
-          "link": "/info/view/2"
+          "link": "/info/view2/2"
         }
       ]
     },
@@ -87,7 +65,7 @@
         {
           "text": "项目提供",
           "icon": {"type": "icon", "value": "project"},
-          "link": "/info/view/3"
+          "link": "/info/view2/3"
         }
       ]
     },
@@ -99,7 +77,7 @@
         {
           "text": "寻找项目",
           "icon": {"type": "icon", "value": "team"},
-          "link": "/info/view/5"
+          "link": "/info/view2/4"
         }
       ]
     },
@@ -111,7 +89,7 @@
         {
           "text": "资料共享",
           "icon": {"type": "icon", "value": "file"},
-          "link": "/info/view/6"
+          "link": "/info/view2/6"
         }
       ]
     },

@@ -1,0 +1,89 @@
+<page-header>
+    <div class="text-center">
+      <nz-input-group nzSearch nzSize="large" [nzSuffix]="suffixButton" style="width: 520px;">
+        <input type="text" nz-input placeholder="请输入">
+        <ng-template #suffixButton>
+          <button nz-button nzType="primary" nzSize="large" nzSearch>Search</button>
+        </ng-template>
+      </nz-input-group>
+    </div>
+</page-header>
+<!-- <nz-card [nzBordered]="false">
+  <form nz-form se-container="1" size="compact" gutter="32" [labelWidth]="null">
+    <se label="所属类目" line>
+      <tag-select>
+        <nz-tag *ngFor="let i of categories; let idx = index" nzMode="checkable" [nzChecked]="i.value" (nzCheckedChange)="changeCategory($event, idx)">
+          {{i.text}}
+        </nz-tag>
+      </tag-select>
+    </se>
+    <se label="owner" line>
+      <nz-select [(ngModel)]="q.owners" name="owners" [nzMode]="'tags'" style="max-width: 286px;">
+        <nz-option *ngFor="let i of owners" [nzLabel]="i.name" [nzValue]="i.id"></nz-option>
+      </nz-select>
+      <a class="ml-sm" (click)="setOwner()">只看自己的</a>
+    </se>
+    <se label="其它选项">
+      <div class="ant-form ant-form-inline">
+        <nz-form-item>
+          <nz-form-label nzFor="rate">作者</nz-form-label>
+          <nz-form-control>
+            <nz-select [(ngModel)]="q.user" name="user" [nzPlaceHolder]="'不限'" [nzShowSearch]="true" style="width: 100px;">
+              <nz-option [nzLabel]="'李三'" [nzValue]="'lisa'"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label nzFor="rate">好评度</nz-form-label>
+          <nz-form-control>
+            <nz-select [(ngModel)]="q.rate" name="rate" [nzPlaceHolder]="'不限'" [nzShowSearch]="true" style="width: 100px;">
+              <nz-option [nzLabel]="'优秀'" [nzValue]="'good'"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </se>
+  </form>
+</nz-card> -->
+<nz-card [nzBordered]="false">
+  <nz-list nzItemLayout="vertical" [nzLoading]="loading" [nzDataSource]="list" [nzRenderItem]="item" [nzPagination]="pagination">
+    <ng-template #item let-item>
+      <nz-list-item [nzContent]="nzContent" [nzExtra]="nzExtra" [nzActions]="[op1,op2,op3]">
+        <ng-template #op1>
+          <i nz-icon type="star" class="mr-sm"></i>{{item.star}}</ng-template>
+        <ng-template #op2>
+          <i nz-icon type="like" class="mr-sm"></i>{{item.like}}</ng-template>
+        <ng-template #op3>
+          <i nz-icon type="message" class="mr-sm"></i>{{item.message}}</ng-template>
+        <ng-template #nzExtra>
+          <div style="width: 272px; height: 1px;"></div>
+        </ng-template>
+        <nz-list-item-meta [nzTitle]="nzTitle" [nzDescription]="nzDescription">
+          <ng-template #nzTitle>
+            <a [routerLink]="['/news/news-view/', item.id]">{{item.articleTitle}}</a>
+          </ng-template>
+          <ng-template #nzDescription>
+            <nz-tag>标签1</nz-tag>
+            <nz-tag>标签2</nz-tag>
+            <nz-tag>标签3</nz-tag>
+          </ng-template>
+        </nz-list-item-meta>
+        <ng-template #nzContent>
+          <!-- <p>{{item.content}}</p> -->
+          <div class="mt-md d-flex">
+            <nz-avatar [nzSrc]="item.avatar" [nzSize]="'small'" class="mr-sm"></nz-avatar>
+            <a href="{{item.href}}" target="_blank">{{item.owner}}</a>
+            <span class="px-sm">发布在</span>
+            <a href="{{item.href}}" target="_blank">{{item.href}}</a>
+            <time class="pl-md text-grey" title="{{item.updatedAt}}">{{item.updatedAt | _date}}</time>
+          </div>
+        </ng-template>
+      </nz-list-item>
+    </ng-template>
+    <ng-template #pagination>
+        <nz-pagination [nzTotal]="total" [nzPageSize]="pageSize" (nzPageIndexChange)="getData($event)"></nz-pagination>
+      </ng-template>
+  </nz-list>
+</nz-card>
+
+  

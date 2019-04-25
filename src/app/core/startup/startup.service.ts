@@ -61,12 +61,12 @@ export class StartupService {
   // }
 
   private viaMock(resolve: any, reject: any) {
-    // const tokenData = this.tokenService.get();
-    // if (!tokenData.token) {
-    //   this.injector.get(Router).navigateByUrl('/passport/login');
-    //   resolve({});
-    //   return;
-    // }
+    const tokenData = this.tokenService.get();
+    if (!tokenData.token) {
+      this.injector.get(Router).navigateByUrl('/passport/login');
+      resolve({});
+      return;
+    }
     // mock
     this.httpClient.get('http://localhost:4200/assets/tmp/app-data.json')
     .subscribe(appData => {
