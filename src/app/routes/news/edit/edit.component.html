@@ -18,7 +18,7 @@
             <input nz-input placeholder="输入文章的标题" formControlName="articleTitle" />
         </se>
         <se label="正文内容" error="文章内容为必填项" required>
-            <tinymce formControlName="articleContent"></tinymce>
+            <tinymce formControlName="articleContent" [config]="config"></tinymce>
         </se>
         <se>
             <button nz-button nzType="primary" [disabled]="form.invalid" type="submit" [nzLoading]="submitting">提交</button>

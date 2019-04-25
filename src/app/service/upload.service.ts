@@ -10,9 +10,9 @@ import { NzMessageService } from 'ng-zorro-antd';
   providedIn: 'root'
 })
 export class UploadService {
-  baseUrl = 'http://10.0.78.214:8888/';
+  baseUrl = 'http://10.0.78.30:8888/';
   optionalUrl = 'file';
-  url = 'http://10.0.78.214:8888/file ';
+  url = 'http://10.0.78.30:8888/file ';
 
 
   constructor(

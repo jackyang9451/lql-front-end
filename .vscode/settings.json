@@ -6,5 +6,13 @@
   "ngschematics.schematics": [
     "ng-alain"
   ],
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+// TypeScript: prefix method and properties with public or private keywords
+"class-helper.ts.prefixVisibility": true,
+
+// TypeScript: default property visibility
+"class-helper.ts.property.visibility": "public",
+
+// TypeScript: prefix method with the type declaration
+"class-helper.ts.method.prefixType": true,
 }

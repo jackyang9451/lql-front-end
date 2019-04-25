@@ -5,6 +5,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap, map } from 'rxjs/operators';
 import { zip } from 'rxjs';
 import { NzMessageService } from 'ng-zorro-antd';
+import { ArticleQueryParam } from 'app/interface/ArticleQueryParam';
 
 @Component({
   selector: 'app-info-view2',
@@ -99,8 +100,9 @@ export class InfoView2Component implements OnInit {
   getData(pageNum: number) {
     this.loading = true;
     // 使用虚拟数据先凑活着
+    const param = new ArticleQueryParam(this.articleSectionId, pageNum);
     zip(
-      this.infoService.getInfoByArticleSectionId(this.articleSectionId, undefined, pageNum),
+      this.infoService.getInfoByArticleSectionId(param),
       this.http.get('/api/list', { count: this.q.ps })
     )
     .pipe(

@@ -20,8 +20,37 @@ export class NewsEditComponent implements OnInit {
   listOfTagOptions = [];
   // 传过来的文章ID
   id = this.route.snapshot.paramMap.get('id');
-
+   // tinymce自定义化配置
+   config = {
+    file_picker_callback: (callback, value, meta) => {
+      // Provide image and alt text for the image dialog
+      if (meta.filetype === 'image') {
+        this.uploadService.uploadImage(callback);
+      }
+      // Provide alternative source and posted for the media dialog
+      if (meta.filetype === 'media') {
+        this.uploadService.uploadMedia(callback);
+      }
+      // Provide file and text for the link dialog
+      if (meta.filetype === 'file') {
+        this.uploadService.uploadFile(callback);
+      }
+    },
+    file_picker_types: 'file image media',
+    // images_upload_handler:  (blobInfo, success, failure) => {
+    //   console.log(blobInfo.blob().name);
+    //   const formData = new FormData();
+    //   formData.append('file', blobInfo.blob(), blobInfo.blob().name);
+    //   this.http.post('', formData)
+    //   .subscribe((res: any) => {
+    //     if (res.status === 200) {
+    //       success(res.laction);
+    //     }
+    //   });
+    // }
+  };
   article: any;
+  uploadService: any;
   constructor(
     private route: ActivatedRoute,
     public location: Location,
