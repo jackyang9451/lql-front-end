@@ -172,7 +172,7 @@ export class AutoFormAddFormComponent implements OnInit {
            title: res.title,
            ui: {
              widget: 'upload',
-             action: '/upload', // 上传文件的接口
+             action: '/file', // 上传文件的接口
              resReName: 'resource_id',
            }
           };
