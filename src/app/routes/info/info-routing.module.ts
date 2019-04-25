@@ -8,8 +8,8 @@ const routes: Routes = [
   // { path: 'view/:sectionId', component: InfoViewComponent },
   { path: 'view2/:sectionId', component: InfoView2Component }];
 
-// @NgModule({
-//   imports: [RouterModule.forChild(routes)],
-//   exports: [RouterModule]
-// })
-// export class InfoRoutingModule { }
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class InfoRoutingModule { }
