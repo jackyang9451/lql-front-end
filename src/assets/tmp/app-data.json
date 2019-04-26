@@ -3,11 +3,6 @@
     "name": "留侨联",
     "description": "留侨联系统"
   },
-  "user": {
-    "name": "杨哥帅过吴彦祖",
-    "avatar": "./assets/tmp/img/1.png",
-    "email": "yubg@nuc.edu.cn"
-  },
   "menu": [
     {
       "text": "首页",
@@ -101,7 +96,8 @@
         {
           "text": "文章管理",
           "icon": {"type": "icon", "value": "database"},
-          "link": "admin/adminArticle"
+          "link": "admin/adminArticle",
+          "acl": ["admin"]
         }
       ]
     },
@@ -113,7 +109,8 @@
         {
           "text": "用户管理",
           "icon": {"type": "icon", "value": "idcard"},
-          "link": ""
+          "link": "",
+          "acl": ["admin"]
         }
       ]
     }

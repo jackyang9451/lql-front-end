@@ -3,11 +3,11 @@
     <img src="https://gw.alipayobjects.com/zos/rmsportal/nxkuOJlFJuAUhzlMTCEe.png">
   </ng-template>
   <ng-template #action>
-    <nz-button-group>
+    <nz-button-group [acl]="['admin']">
       <button nz-button>通过</button>
       <button nz-button>驳回</button>
     </nz-button-group>
-    <nz-dropdown class="mx-sm">
+    <nz-dropdown class="mx-sm" [acl]="['admin']">
       <button nz-button nz-dropdown>
         <i nz-icon type="ellipsis"></i>
       </button>
@@ -22,18 +22,18 @@
     <div nz-row>
       <div nz-col nzXs="24" nzSm="12">
         <p class="text-grey">状态</p>
-        <p class="text-lg">{{articleData?.articleState}}</p>
+        <p class="text-lg">{{articleData.articleState}}</p>
       </div>
     </div>
   </ng-template>
   <sv-container size="small" col="2">
-    <sv label="创建人">{{articleData?.userId}}</sv>
-    <sv label="板块">{{articleData?.articleSectionId}}</sv>
-    <sv label="创建时间">{{articleData?.createBy | _date}} </sv>
+    <sv label="创建人">{{articleData.userId}}</sv>
+    <sv label="板块">{{articleData.articleSectionId}}</sv>
+    <sv label="创建时间">{{articleData.createBy | _date}} </sv>
     <!-- <sv label="关联单据">
       <a (click)="msg.success('yes')">12421</a>
     </sv> -->
-    <sv label="修改时间">{{articleData?.modifiedBy | _date}}</sv>
+    <sv label="修改时间">{{articleData.modifiedBy | _date}}</sv>
     <sv label="备注">balabala的一些备注</sv>
   </sv-container>
   <!-- <ng-template #tab>
@@ -43,18 +43,20 @@
     </nz-tabset>
   </ng-template> -->
 </page-header>
-<nz-card [nzBordered]="false" class="mb-lg" nzTitle="审核进度">
+<nz-card [nzBordered]="false" class="mb-lg" nzTitle="审核进度" [acl]="['admin']">
   <nz-steps [nzCurrent]="0" nzProgressDot nzSize="small">
     <nz-step [nzTitle]="'文稿'">
     </nz-step>
     <nz-step [nzTitle]="'审核中'">
     </nz-step>
     <nz-step [nzTitle]="'发布'"></nz-step>
+    <nz-step [nzTitle]="'审核未通过'"></nz-step>
+    <nz-step [nzTitle]="'封禁'"></nz-step>
   </nz-steps>
   <div class="steps-content"></div>
 </nz-card>
 <nz-card [nzBordered]="false">
-  <div [innerHTML]="articleData?.articleContent | html"></div>
+  <div [innerHTML]="articleData.articleContent | html"></div>
 </nz-card>
 <nz-card>
   <h1>评论一番:</h1>

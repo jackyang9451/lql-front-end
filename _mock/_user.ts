@@ -103,20 +103,43 @@ export const USERS = {
     const data = req.body;
     if (
       !(data.userName === 'admin' || data.userName === 'user') ||
-      data.password !== 'ng-alain.com'
+      data.password !== '123'
     ) {
-      return { msg: `Invalid username or password（admin/ng-alain.com）` };
+      return { msg: `用户名或者密码错误(123)` };
     }
-    return {
-      msg: 'ok',
-      user: {
-        token: '123456789',
-        name: data.userName,
-        email: `${data.userName}@qq.com`,
-        id: 10000,
-        time: +new Date(),
-      },
-    };
+    if (data.userName === 'admin') {
+      return {
+        msg: 'ok',
+        user: {
+          token: '123456789',
+          name: data.userName,
+          email: `${data.userName}@qq.com`,
+          id: 10000,
+          time: +new Date(),
+          acl: ['admin'],
+          info: {
+            name: '余本国',
+            avatar: './assets/tmp/img/1.png',
+            email: 'yubg@nuc.edu.cn',
+          }
+        },
+      };
+    } else {
+      return {
+        msg: 'ok',
+        user: {
+          token: '987654321',
+          id: 10000,
+          time: +new Date(),
+          acl: ['user'],
+          info: {
+            name: '杨阳',
+            avatar: './assets/tmp/img/2.png',
+            email: 'S1813029@st.nuc.edu.cn',
+          }
+        },
+      };
+    }
   },
   'POST /register': {
     msg: 'ok',
