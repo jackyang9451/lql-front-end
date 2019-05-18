@@ -22,18 +22,18 @@
     <div nz-row>
       <div nz-col nzXs="24" nzSm="12">
         <p class="text-grey">状态</p>
-        <p class="text-lg">{{articleData.articleState}}</p>
+        <p class="text-lg">{{articleData?.articleState}}</p>
       </div>
     </div>
   </ng-template>
   <sv-container size="small" col="2">
-    <sv label="创建人">{{articleData.userId}}</sv>
-    <sv label="板块">{{articleData.articleSectionId}}</sv>
-    <sv label="创建时间">{{articleData.createBy | _date}} </sv>
+    <sv label="创建人">{{articleData?.userId}}</sv>
+    <sv label="板块">{{articleData?.articleSectionId}}</sv>
+    <sv label="创建时间">{{articleData?.createBy | _date}} </sv>
     <!-- <sv label="关联单据">
       <a (click)="msg.success('yes')">12421</a>
     </sv> -->
-    <sv label="修改时间">{{articleData.modifiedBy | _date}}</sv>
+    <sv label="修改时间">{{articleData?.modifiedBy | _date}}</sv>
     <sv label="备注">balabala的一些备注</sv>
   </sv-container>
   <!-- <ng-template #tab>
@@ -56,7 +56,7 @@
   <div class="steps-content"></div>
 </nz-card>
 <nz-card [nzBordered]="false">
-  <div [innerHTML]="articleData.articleContent | html"></div>
+  <div [innerHTML]="articleData?.articleContent | html"></div>
 </nz-card>
 <nz-card>
   <h1>评论一番:</h1>

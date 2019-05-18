@@ -9,5 +9,5 @@ export interface MeetingBaseInfo {
   meetingContact:        any;         // 联系人             required
   meetingMobile:        any;         // 会议联系方式        required
   meetingEmail?:          any;         // 会议邮箱
-  meetingContent:        any;          // 会议内容          required
+  meetingContent?:        any;          // 会议内容          required
 }

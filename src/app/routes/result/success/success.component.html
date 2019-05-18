@@ -1,39 +1,7 @@
 <page-header></page-header>
 <nz-card>
-  <result type="success" [title]="'提交成功'" description=""
-    [extra]="resultExtra">
-    <ng-template #resultExtra>
-      <div nz-row [nzGutter]="16" class="mb-md">
-        <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="12" [nzXl]="6">
-          <span class="text-grey-darker">表单 ID：</span>
-          23421
-        </div>
-        <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="12" [nzLg]="12" [nzXl]="6">
-          <span class="text-grey-darker">负责人：</span>
-          杨哥帅过吴彦祖
-        </div>
-        <div nz-col [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="24" [nzXl]="12">
-          <span class="text-grey-darker">生效时间：</span>
-          2019-4-24
-        </div>
-      </div>
-      <nz-steps [nzCurrent]="3" nzProgressDot>
-        <nz-step [nzTitle]="'创建表单'" [nzDescription]="createDesc">
-          <ng-template #createDesc>
-            <div style="font-size: 14px; position: relative; left: 38px;">
-            </div>
-          </ng-template>
-        </nz-step>
-        <nz-step [nzTitle]="'测试成功'" [nzDescription]="checkedDesc">
-          <ng-template #checkedDesc>
-            <div style="font-size: 14px; position: relative; left: 38px;">
-            </div>
-          </ng-template>
-        </nz-step>
-        <nz-step [nzTitle]="'发布'"></nz-step>
-      </nz-steps>
-    </ng-template>
-    <button nz-button [nzType]="'primary'">返回列表</button>
+  <result type="success" [title]="'成功'" description="">
+    <button nz-button [nzType]="'primary'" (click)="click()">返回首页</button>
     <!-- <button nz-button>查看项目</button>
     <button nz-button>打 印</button> -->
   </result>

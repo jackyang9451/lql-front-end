@@ -1,4 +1,10 @@
-<page-header></page-header>
+<page-header [title]="'发布'" [tab]="tab">
+    <ng-template #tab>
+        <nz-tabset [nzSelectedIndex]="pos">
+            <nz-tab *ngFor="let i of tabs" [nzTitle]="i.tab" (nzClick)="to(i)"></nz-tab>
+        </nz-tabset>
+    </ng-template>
+</page-header>
 <nz-card [nzBordered]="false">
     
     <form nz-form [formGroup]="form" (ngSubmit)="submit()" se-container="1" labelWidth="200">

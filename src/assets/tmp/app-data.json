@@ -5,7 +5,7 @@
   },
   "menu": [
     {
-      "text": "首页",
+      "text": "通用功能",
       "group": false,
       "hideInBreadcrumb": true,
       "children": [
@@ -13,74 +13,37 @@
           "text": "首页",
           "icon": {"type": "icon", "value": "home"},
           "link": "/dashboard"
-        }
-      ]
-    },
-    {
-      "text": "发布一堆东西",
-      "group": false,
-      "hideInBreadcrumb": true,
-      "children": [
+        },
         {
           "text": "我要发布",
           "icon": {"type": "icon", "value": "form"},
           "link": "/news/news-publish"
-        }
-      ]
-    },
-    {
-      "text": "通知",
-      "group": false,
-      "hideInBreadcrumb": true,
-      "children": [
+        },
         {
           "text": "通知",
           "icon": {"type": "icon", "value": "notification"},
           "link": "/info/view2/1"
-        }
-      ]
-    },
-    {
-      "text": "新闻",
-      "group": false,
-      "hideInBreadcrumb": true,
-      "children": [
+        },
         {
           "text": "新闻",
           "icon": {"type": "icon", "value": "global"},
           "link": "/info/view2/2"
-        }
-      ]
-    },
-    {
-      "text": "项目介绍",
-      "group": false,
-      "hideInBreadcrumb": true,
-      "children": [
+        },
         {
           "text": "项目介绍",
           "icon": {"type": "icon", "value": "project"},
           "link": "/info/view2/3"
-        }
-      ]
-    },
-    {
-      "text": "咨询",
-      "group": false,
-      "hideInBreadcrumb": true,
-      "children": [
+        },
         {
           "text": "咨询",
           "icon": {"type": "icon", "value": "team"},
           "link": "/info/view2/4"
-        }
-      ]
-    },
-    {
-      "text": "资料共享",
-      "group": false,
-      "hideInBreadcrumb": true,
-      "children": [
+        },
+        {
+          "text": "会议",
+          "icon": {"type": "icon", "value": "key"},
+          "link": "/info/view2/5"
+        },
         {
           "text": "资料共享",
           "icon": {"type": "icon", "value": "file"},
@@ -89,27 +52,26 @@
       ]
     },
     {
-      "text": "文章管理",
-      "group": false,
+      "text": "管理员功能",
+      "group": true,
       "hideInBreadcrumb": true,
       "children": [
         {
           "text": "文章管理",
           "icon": {"type": "icon", "value": "database"},
-          "link": "admin/adminArticle",
+          "link": "/admin/adminArticle",
           "acl": ["admin"]
-        }
-      ]
-    },
-    {
-      "text": "用户管理",
-      "group": false,
-      "hideInBreadcrumb": true,
-      "children": [
+        },
         {
           "text": "用户管理",
           "icon": {"type": "icon", "value": "idcard"},
           "link": "",
+          "acl": ["admin"]
+        },
+        {
+          "text": "会议发布",
+          "icon": {"type": "icon", "value": "audit"},
+          "link": "/meeting/meeting-publish",
           "acl": ["admin"]
         }
       ]

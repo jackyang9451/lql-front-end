@@ -61,43 +61,46 @@ export class StartupService {
   // }
 
   private viaMock(resolve: any, reject: any) {
-    const tokenData = this.tokenService.get();
-    if (!tokenData.token) {
-      this.injector.get(Router).navigateByUrl('/passport/login');
-      resolve({});
-      return;
-    }
+    let tokenData = this.tokenService.get();
     // if (!tokenData.token) {
-    //   this.tokenService.set({
-    //     token: '9527',
-    //     id: 10000,
-    //     time: +new Date(),
-    //     acl: ['tourist'],
-    //     info: {
-    //       name: '游客',
-    //       avatar: './assets/tmp/img/3.png',
-    //       email: 'somebody@nuc.edu.cn',
-    //     }
-    //   });
+    //   this.injector.get(Router).navigateByUrl('/passport/login');
+    //   resolve({});
+    //   return;
     // }
+    if (!tokenData.token) {
+      this.tokenService.set({
+        token: '9527',
+        id: 10000,
+        time: +new Date(),
+        // acl: ['tourist'],
+        info: {
+          name: '游客',
+          avatar: './assets/tmp/img/3.png',
+          email: 'somebody@nuc.edu.cn',
+        }
+      });
+      tokenData = this.tokenService.get(); // 这里语句的意思是 重新获取tokenData的值
+    }
     // mock
     this.httpClient.get('http://10.170.170.131:4200/assets/tmp/app-data.json')
     .subscribe(appData => {
+      console.log('运行一次');
          // application data
-       const res: any = appData;
-       // 应用信息：包括站点名、描述、年份
-       this.settingService.setApp(res.app);
-       // 用户信息：包括姓名、头像、邮箱地址
-       this.settingService.setUser(tokenData.info);
-       // ACL：设置角色
-       this.aclService.setRole(tokenData.acl);
-       // 初始化菜单
-       this.menuService.add(res.menu);
-       // 设置页面标题的后缀
-       this.titleService.suffix = res.app.name;
-       this.titleService.prefix = res.app.name;
-       // 折叠菜
-       this.settingService.layout.collapsed = true;
+      const res: any = appData;
+      // 应用信息：包括站点名、描述、年份
+      this.settingService.setApp(res.app);
+      // 用户信息：包括姓名、头像、邮箱地址
+      console.log(tokenData.info);
+      this.settingService.setUser(tokenData.info);
+      // ACL：设置角色
+      this.aclService.setRole(tokenData.acl);
+      // 初始化菜单
+      this.menuService.add(res.menu);
+      // 设置页面标题的后缀
+      this.titleService.suffix = res.app.name;
+      this.titleService.prefix = res.app.name;
+      // 折叠菜
+      this.settingService.layout.collapsed = true;
     },
        () => { },
        () => {

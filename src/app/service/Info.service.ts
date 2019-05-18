@@ -55,9 +55,8 @@ export class InfoService {
   //////////////////////// POST 请求 ////////////////////////////////////////////
   addArticle(article: any) {
     const optionalUrl = 'lql/article';
-    const url = `${optionalUrl}`;
     // 直接把对象扔进去就可以了
-    return this.http.post(url, article);
+    return this.http.post(optionalUrl, article);
   }
 
   ///////////////// DELETE请求 /////////////////////////////////////////////////
