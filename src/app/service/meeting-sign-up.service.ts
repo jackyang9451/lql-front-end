@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { _HttpClient } from '@delon/theme';
-import { MeetingSignUp } from 'app/interface/MeetingSignup';
+import { MeetingSignUp } from 'app/interface/MeetingSignUp';
+
 
 @Injectable({
   providedIn: 'root'

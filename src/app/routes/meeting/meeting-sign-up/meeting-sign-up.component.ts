@@ -4,7 +4,7 @@ import { NzMessageService } from 'ng-zorro-antd';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { MeetingSignUpService } from 'app/service/meeting-sign-up.service';
-import { MeetingSignUp } from 'app/interface/MeetingSignup';
+import { MeetingSignUp } from 'app/interface/MeetingSignUp';
 
 @Component({
   selector: 'app-meeting-meeting-sign-up',
