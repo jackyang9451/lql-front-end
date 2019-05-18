@@ -1,34 +1,36 @@
-<page-header></page-header>
-<form nz-form [formGroup]="form" (ngSubmit)="submit()" se-container="1" labelWidth="200">
-    <se label="会议名称" error="必填项" required>
-        <input nz-input placeholder="会议的名称" formControlName="meetingName" />
-    </se>
-    <se label="会议时间" error="时间错误" required>
-        <nz-range-picker formControlName="meetingDate"></nz-range-picker>
-    </se>
-    <se label="会议地点" error="必填项" required>
-        <input nz-input placeholder="输入地点" formControlName="meetingLocation" />
-    </se>
-    <se label="会议类别">
-        <input nz-input placeholder="选填" formControlName="meetingCategory" />
-    </se>
-    <se label="主办方" error="必填项" required>
-        <input nz-input placeholder="" formControlName="meetingSponsor" />
-    </se>
-    <se label="联系人" error="必填项" required>
-        <input nz-input placeholder="" formControlName="meetingContact" />
-    </se>
-    <se label="会议联系方式" error="必填项" required>
+<page-header [title]="'发布会议'"></page-header>
+<nz-card [nzBordered]="false">
+    <form nz-form [formGroup]="form" (ngSubmit)="submit()" se-container="1" labelWidth="200">
+        <se label="会议名称" error="必填项" required>
+            <input nz-input placeholder="会议的名称" formControlName="meetingName" />
+        </se>
+        <se label="会议时间" error="时间错误" required>
+            <nz-range-picker formControlName="meetingDate"></nz-range-picker>
+        </se>
+        <se label="会议地点" error="必填项" required>
+            <input nz-input placeholder="输入地点" formControlName="meetingLocation"/>
+        </se>
+        <se label="会议类别">
+            <input nz-input placeholder="选填" formControlName="meetingCategory" />
+        </se>
+        <se label="主办方" error="必填项" required>
+            <input nz-input placeholder="" formControlName="meetingSponsor" />
+        </se>
+        <se label="联系人" error="必填项" required>
+            <input nz-input placeholder="" formControlName="meetingContact" />
+        </se>
+        <se label="会议联系方式" error="必填项" required>
             <input nz-input placeholder="" formControlName="meetingMobile" />
-    </se>
-    <se label="联系人邮箱" error="邮箱格式错误">
-        <input nz-input placeholder="选填" formControlName="meetingEmail" />
-    </se>
-    <se label="会议内容" error="这么重要你竟然不写?" required>
-        <tinymce [config]="config"  formControlName="meetingContent"></tinymce>
-    </se>
-    <se>
-        <button nz-button nzType="primary"type="submit" [nzLoading]="submitting">发布</button>
-        <!-- <button nz-button class="ml-sm">保存</button> -->
-    </se> 
-</form>
+        </se>
+        <se label="联系人邮箱" error="邮箱格式错误">
+            <input nz-input placeholder="选填" formControlName="meetingEmail" />
+        </se>
+        <se label="会议内容" error="这么重要你竟然不写?" required>
+            <tinymce [config]="config"  formControlName="meetingContent"></tinymce>
+        </se>
+        <se>
+            <button nz-button nzType="primary"type="submit" [nzLoading]="submitting">发布</button>
+            <!-- <button nz-button class="ml-sm">保存</button> -->
+        </se> 
+    </form>
+</nz-card>

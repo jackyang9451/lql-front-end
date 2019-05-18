@@ -1,0 +1,7 @@
+<page-header title="参会人员">
+
+</page-header>
+<nz-card [nzBordered]="false">
+    <button nz-button (click)="st.export()">导出报名表</button>
+    <st #st [columns]="columns" [data]="url" [req]="req" [res]="res"></st>
+</nz-card>

@@ -8,6 +8,7 @@ import { UploadService } from 'app/service/upload.service';
 import { InfoService } from 'app/service/Info.service';
 import { MeetingBaseInfo } from 'app/interface/MeetingInfo';
 import { MeetingService } from 'app/service/meeting.service';
+import { map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-meeting-meeting-publish',
@@ -17,6 +18,7 @@ export class MeetingMeetingPublishComponent implements OnInit {
   form: FormGroup;
   submitting = false;
 
+  ngModel;
   // // 路由传来的参数
   // articleSectionId = this.route.snapshot.queryParamMap.get('articleSectionId');
   // 标签中要使用的变量
@@ -54,11 +56,12 @@ export class MeetingMeetingPublishComponent implements OnInit {
   };
 
   constructor(
-    private http: HttpClient,
     private fb: FormBuilder,
     private msg: NzMessageService,
     private route: ActivatedRoute,
+    private router: Router,
     private uploadService: UploadService,
+    private infoService: InfoService,
     private meetingService: MeetingService) { }
 
   ngOnInit() {
@@ -82,27 +85,10 @@ export class MeetingMeetingPublishComponent implements OnInit {
     }
     this.listOfOption = children;
   }
-  /**
-   * 选择要使用的表单
-   */
-  select(articleSectionId: any) {
-    console.log(articleSectionId);
-  }
 
   submit() {
     this.submitting = true;
-    // // 究极开发偷懒方式 直接赋值哇
-    // this.form.value.userId = 1; // 偷懒没有写用户模块
-    // this.form.value.articleLabels = '1,2'; // 偷懒不会写标签
-    // const arr = this.form
     const exValue: MeetingBaseInfo = this.form.value;
-    // for (let index in exValue.meeeingDate) {
-    //   if (+index === 0) {
-    //      exValue.meetingStart = exValue.meeeingDate[index];
-    //   } else {
-    //     exValue.meetingEnd = exValue.meeeingDate[index];
-    //   }
-    // }
     exValue.meetingDate.map((value: any, index: number) => {
       if (index === 0) {
         exValue.meetingStart = value;
@@ -111,14 +97,24 @@ export class MeetingMeetingPublishComponent implements OnInit {
       }
       delete exValue.meetingDate;
     });
-    console.log(exValue);
-    // this.newService.addArticle(this.form.value)
-    // .subscribe((res: any) => {
-    //   if (res.status === 200) {
-    //     this.msg.success('提交成功,请勿重复提交');
-    //     this.form.reset();
-    //     this.submitting = false;
-    //   }
-    // });
+    this.meetingService.addMeeting(exValue)
+    .pipe(
+      map((res: any) => res.result),
+      switchMap((id: number) => this.meetingService.getMeetingById(id)),
+      switchMap((res: any) => this.infoService.getArticleById(res.result.articleId)),
+      map((res: any) => res.result),
+      switchMap((result: any) => {
+        result.articleContent = exValue.meetingContent;
+        return this.infoService.modifyArticle(result);
+      })
+    )
+    .subscribe((res: any) => {
+      if (res.status === 200) {
+        this.msg.success('发布会议成功,请勿重复提交');
+        this.form.reset();
+        this.submitting = false;
+      }
+      this.router.navigateByUrl('/');
+    });
   }
 }

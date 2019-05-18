@@ -12,35 +12,35 @@ import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/
         <div nz-row [nzType]="'flex'" [nzJustify]="'center'" [nzAlign]="'middle'" class="app-icons">
           <div nz-col [nzSpan]="6">
             <i class="anticon anticon-calendar bg-error text-white"></i>
-            <small>Calendar</small>
+            <small>中北大学</small>
           </div>
           <div nz-col [nzSpan]="6">
             <i class="anticon anticon-file bg-geekblue text-white"></i>
-            <small>Files</small>
+            <small>组织部官网</small>
           </div>
           <div nz-col [nzSpan]="6">
             <i class="anticon anticon-cloud bg-success text-white"></i>
-            <small>Cloud</small>
+            <small>中国政府官网</small>
           </div>
           <div nz-col [nzSpan]="6">
             <i class="anticon anticon-star-o bg-magenta text-white"></i>
-            <small>Star</small>
+            <small>百度</small>
           </div>
           <div nz-col [nzSpan]="6">
-            <i class="anticon anticon-team bg-purple text-white"></i>
-            <small>Team</small>
+            <i class="anticon anticon-calendar bg-error text-white"></i>
+            <small>中北大学</small>
           </div>
           <div nz-col [nzSpan]="6">
-            <i class="anticon anticon-scan bg-warning text-white"></i>
-            <small>QR</small>
+            <i class="anticon anticon-file bg-geekblue text-white"></i>
+            <small>组织部官网</small>
           </div>
           <div nz-col [nzSpan]="6">
-            <i class="anticon anticon-pay-circle-o bg-cyan text-white"></i>
-            <small>Pay</small>
+            <i class="anticon anticon-cloud bg-success text-white"></i>
+            <small>中国政府官网</small>
           </div>
           <div nz-col [nzSpan]="6">
-            <i class="anticon anticon-printer bg-grey text-white"></i>
-            <small>Print</small>
+            <i class="anticon anticon-star-o bg-magenta text-white"></i>
+            <small>百度</small>
           </div>
         </div>
       </nz-spin>

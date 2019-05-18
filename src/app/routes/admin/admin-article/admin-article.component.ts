@@ -19,7 +19,7 @@ export class AdminAdminArticleComponent implements OnInit {
   rows: any[];
   total: number;
   loading = false;
-
+  currentPageNum = 1;
   constructor(
     private adminService: AdminService,
     private router: Router,
@@ -53,7 +53,7 @@ export class AdminAdminArticleComponent implements OnInit {
         if ( res.status === 200 ) {
           // 不要使用remove方法 你被骗了 remove是移除全局提醒用的
           this.msg.error('删除成功');
-          // this.getDataByPage(this.currentPageNum);
+          this.getDataByPage(this.currentPageNum);
         }
       }
     );

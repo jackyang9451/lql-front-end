@@ -1,11 +1,12 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { _HttpClient } from '@delon/theme';
 import { InfoService } from 'app/service/Info.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { switchMap, map } from 'rxjs/operators';
 import { zip } from 'rxjs';
 import { NzMessageService } from 'ng-zorro-antd';
 import { ArticleQueryParam } from 'app/interface/ArticleQueryParam';
+import { MeetingService } from 'app/service/meeting.service';
 
 @Component({
   selector: 'app-info-view2',
@@ -82,10 +83,11 @@ export class InfoView2Component implements OnInit {
 
   constructor(
     private http: _HttpClient,
+    private meetingService: MeetingService,
     private cdr: ChangeDetectorRef,
     private infoService: InfoService,
     private route: ActivatedRoute,
-    private msg: NzMessageService,
+    private router: Router
     ) {}
 
   ngOnInit() {
@@ -97,6 +99,16 @@ export class InfoView2Component implements OnInit {
      });
   }
 
+  meetingNav(articleId: number) {
+    this.meetingService.getIdByArticleId(articleId)
+    .pipe(
+      map((res: any) => res.result.rows[0].id)
+    )
+    .subscribe(id => {
+      console.log(id);
+      this.router.navigate(['/meeting/meeting-view/', id]);
+    });
+  }
   getData(pageNum: number) {
     this.loading = true;
     // 使用虚拟数据先凑活着

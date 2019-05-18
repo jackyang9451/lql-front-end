@@ -12,6 +12,7 @@ import { DA_SERVICE_TOKEN, ITokenService } from '@delon/auth';
       {{settings.user.name}}
     </div>
     <div nz-menu class="width-sm">
+    <div *ngIf="settings.user.name !== '游客'">
       <div nz-menu-item routerLink="/pro/account/center"><i nz-icon type="user" class="mr-sm"></i>
         个人中心
       </div>
@@ -25,6 +26,15 @@ import { DA_SERVICE_TOKEN, ITokenService } from '@delon/auth';
       <div nz-menu-item (click)="logout()"><i nz-icon type="logout" class="mr-sm"></i>
         退出登录
       </div>
+    </div>
+    <div *ngIf="settings.user.name === '游客'">
+      <div nz-menu-item (click)="logout()"><i nz-icon type="logout" class="mr-sm"></i>
+        登录
+      </div>
+      <div nz-menu-item (click)="regist()"><i nz-icon type="logout" class="mr-sm"></i>
+        注册
+      </div>
+    </div>
     </div>
   </nz-dropdown>
   `,
@@ -40,5 +50,9 @@ export class HeaderUserComponent {
   logout() {
     this.tokenService.clear();
     this.router.navigateByUrl(this.tokenService.login_url);
+  }
+
+  regist() {
+    this.router.navigateByUrl('/passport/register');
   }
 }

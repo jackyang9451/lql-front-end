@@ -6,6 +6,8 @@ import { ArticleQueryParam } from 'app/interface/ArticleQueryParam';
 import { InfoService } from 'app/service/Info.service';
 import { zip } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { MeetingService } from 'app/service/meeting.service';
+import { MeetingQueryParam } from 'app/interface/MeetingQueryParam';
 
 @Component({
   selector: 'app-dashboard',
@@ -39,6 +41,7 @@ export class DashboardComponent implements OnInit {
     private router: Router,
     public msg: NzMessageService,
     private infoService: InfoService,
+    private meetingService: MeetingService
   ) { }
 
   ngOnInit() {
@@ -50,7 +53,7 @@ export class DashboardComponent implements OnInit {
     const httpParam2 = new ArticleQueryParam(2, 1, 5);
     const httpParam3 = new ArticleQueryParam(3, 1, 5);
     const httpParam4 = new ArticleQueryParam(4, 1, 5);
-    const httpParam5 = new ArticleQueryParam(5, 1, 5);
+    const httpParam5 = new MeetingQueryParam(1, 5);
     const httpParam6 = new ArticleQueryParam(6, 1, 5);
 
     zip(
@@ -58,7 +61,7 @@ export class DashboardComponent implements OnInit {
       this.infoService.getInfoNormal(httpParam2),
       this.infoService.getInfoNormal(httpParam3),
       this.infoService.getInfoNormal(httpParam4),
-      this.infoService.getInfoNormal(httpParam5),
+      this.meetingService.getMeetingNormal(httpParam5),
       this.infoService.getInfoNormal(httpParam6),
     )
       .pipe(

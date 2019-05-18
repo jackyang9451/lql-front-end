@@ -5,16 +5,31 @@ import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { NzMessageService } from 'ng-zorro-antd';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InfoService } from 'app/service/Info.service';
-import { Router } from '@angular/router';
+import { Router, ActivationEnd } from '@angular/router';
 import { UploadService } from 'app/service/upload.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-news-news-publish',
   templateUrl: './news-publish.component.html',
 })
 export class NewsNewsPublishComponent implements OnInit {
+  private router$: Subscription;
   form: FormGroup;
   submitting = false;
+
+  tabs: any[] = [
+    {
+      key: 'news-publish',
+      tab: '日常发布',
+    },
+    {
+      key: 'meeting-publish',
+      tab: '会议',
+    }
+  ];
+
+  pos = 0;
 
   // 标签中要使用的变量
   listOfOption: Array<{ label: string; value: string }> = [];
@@ -67,11 +82,11 @@ export class NewsNewsPublishComponent implements OnInit {
     });
 
     // 初始化标签中的数据
-    const children: Array<{ label: string; value: string }> = [];
-    for (let i = 10; i < 36; i++) {
-      children.push({ label: i.toString(36) + i, value: '' + i });
-    }
-    this.listOfOption = children;
+    // const children: Array<{ label: string; value: string }> = [];
+    // for (let i = 10; i < 36; i++) {
+    //   children.push({ label: i.toString(36) + i, value: '' + i });
+    // }
+    // this.listOfOption = children;
   }
   /**
    * 选择要使用的表单
@@ -94,5 +109,13 @@ export class NewsNewsPublishComponent implements OnInit {
         this.submitting = false;
       }
     });
+  }
+
+  to(item: any) {
+    if (item.key === 'news-publish') {
+      this.router.navigateByUrl('/news/news-publish');
+    } else {
+      this.router.navigateByUrl('/meeting/meeting-publish');
+    }
   }
 }

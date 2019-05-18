@@ -1,0 +1,41 @@
+<page-header [title]="meetingItem?.meetingName" [action]="action" [extra]="extra" >
+    <ng-template #action>
+      <nz-button-group>
+        <button nz-button (click)="viewSignUp()" [acl]="['admin']">查看报名人员</button>
+        <button nz-button (click)="signUp()">报名</button>
+      </nz-button-group>
+      <button nz-button [nzType]="'primary'" (click)="back()">返回</button>
+    </ng-template>
+    <ng-template #extra>
+      <div nz-row>
+        <div nz-col nzXs="24" nzSm="12">
+          <p class="text-grey">状态</p>
+          <p class="text-lg">{{meetingItem?.articleState}}</p>
+        </div>
+      </div>
+    </ng-template>
+    <sv-container size="small" col="1">
+      <sv label="开始时间">{{meetingItem?.meetingStart | _date}}</sv>
+      <sv label="结束时间">{{meetingItem?.meetingEnd | _date}}</sv>
+      <sv label="地点">{{meetingItem?.meetingLocation}} </sv>
+      <sv label="主办方">{{meetingItem?.meetingSponsor}}</sv>
+      <sv label="联系人">{{meetingItem?.meetingContact}}</sv>
+    </sv-container>
+  </page-header>
+  <nz-card [nzBordered]="false" class="mb-lg" nzTitle="审核进度" [acl]="['admin']">
+    <nz-steps [nzCurrent]="0" nzProgressDot nzSize="small">
+      <nz-step [nzTitle]="'文稿'">
+      </nz-step>
+      <nz-step [nzTitle]="'审核中'">
+      </nz-step>
+      <nz-step [nzTitle]="'发布'"></nz-step>
+      <nz-step [nzTitle]="'审核未通过'"></nz-step>
+      <nz-step [nzTitle]="'封禁'"></nz-step>
+    </nz-steps>
+    <div class="steps-content"></div>
+  </nz-card>
+  <nz-card [nzBordered]="false">
+    <div [innerHTML]="meetingItem?.articleContent | html"></div>
+  </nz-card>
+  
+  

@@ -1,70 +1,57 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { _HttpClient } from '@delon/theme';
 import { NzMessageService } from 'ng-zorro-antd';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { MeetingSignUpService } from 'app/service/meeting-sign-up.service';
+import { MeetingSignUp } from 'app/interface/MeetingSignup';
 
 @Component({
   selector: 'app-meeting-meeting-sign-up',
   templateUrl: './meeting-sign-up.component.html',
 })
 export class MeetingMeetingSignUpComponent implements OnInit {
-  q: any = {
-    status: 'all',
-  };
-  loading = false;
-  data: any[] = []; // 新闻的全体
-  total: number; // 新闻的总数
-  pageSize = 7;     // 默认每页的数量
-  currentPageNum = 1;
+  meetingId = this.route.snapshot.paramMap.get('meetingId');
+  form: FormGroup;
+  submitting = false;
 
   constructor(
-    private http: _HttpClient,
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
     public msg: NzMessageService,
     private cdr: ChangeDetectorRef,
     private router: Router,
+    private meetingSignUpService: MeetingSignUpService
   ) {}
 
   ngOnInit() {
-    this.getDataByPage(1);
+    this.form = this.fb.group({
+      signUpName: [null , [Validators.required]],
+      signUpSex: [null, [Validators.required]],
+      signUpLoction: [null, [Validators.required]],
+      signUpNumber: [null, [Validators.required]],
+      signUpPost: [null, [Validators.required]],
+      signUpDidafangshi: [],
+      signUpDidashijian: [],
+      signUpLihuishijian: [],
+      signUpLihuifangshi: [],
+      signUpRemark: []
+    });
   }
 
-  // getData() {
-  //   this.loading = true;
-  //   this.newsSerivce.getArticleAll().subscribe((res: any) => {
-  //     this.data = res.rows;
-  //     this.total = res.total;
-  //     this.loading = false;
-  //     this.cdr.detectChanges();
-  //   });
-  // }
-  // &event 是改变以后的值
-  getDataByPage(pageNum: any) {
-    // this.newsSerivce.getArticlePagination(pageNum, this.pageSize)
-    // .subscribe((res: any) => {
-    //   this.data = res.result.rows;
-    //   this.total = res.result.total;
-    //   this.loading = false;
-    //   this.cdr.detectChanges();
-    // });
-  }
-  openEdit(record: any = {}) {
-    // 使用非模态框进行操作
-    this.router.navigate(['news/edit', record.id]);
-  }
-
-  deleteIt(id: any) {
-    // console.log(this.currentPageNum);
-    // this.newsSerivce.deleteArticle(id)
-    // .subscribe(
-    //   (res: any) => {
-    //     if ( res.status === 200 ) {
-    //       // 不要使用remove方法 你被骗了 remove是移除全局提醒用的
-    //       this.msg.error('删除成功');
-    //       this.getDataByPage(this.currentPageNum);
-
-    //     }
-    //   }
-    // );
+  submit() {
+    this.submitting = true;
+    const meetingSignUp: MeetingSignUp =  this.form.value;
+    meetingSignUp.meetingId = this.meetingId;
+    this.meetingSignUpService.createMeetingSingUp(meetingSignUp)
+    .subscribe((res: any) => {
+      if (res.status === 200) {
+        this.msg.info('提交成功,请勿重复提交');
+        this.router.navigate(['/result/success']);
+      }
+      this.submitting = false;
+    }
+    );
   }
 
 }

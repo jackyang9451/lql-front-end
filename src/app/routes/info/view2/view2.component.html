@@ -60,7 +60,12 @@
         </ng-template>
         <nz-list-item-meta [nzTitle]="nzTitle" [nzDescription]="nzDescription">
           <ng-template #nzTitle>
-            <a [routerLink]="['/news/news-view/', item.id]">{{item.articleTitle}}</a>
+            <div *ngIf="articleSectionId!==5">
+              <a [routerLink]="['/news/news-view/', item.id]">{{item.articleTitle}}</a>
+            </div>
+            <div *ngIf="articleSectionId === 5">
+              <a (click)="meetingNav(item.id)">{{item.articleTitle}}</a>
+            </div>
           </ng-template>
           <ng-template #nzDescription>
             <nz-tag>标签1</nz-tag>
