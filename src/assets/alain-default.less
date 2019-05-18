@@ -1514,14 +1514,8 @@ this.tinycolor = tinycolor;
 @gold-9: color(~`colorPalette('@{gold-6}', 9) `);
 @gold-10: color(~`colorPalette('@{gold-6}', 10) `);
 
-@preset-colors: pink, magenta, red, volcano, orange, yellow, gold, cyan, lime, green, blue, geekblue,
-  purple;
-
 // The prefix to use on all css classes from ant.
 @ant-prefix: ant;
-
-// An override for the html selector for theme prefixes
-@html-selector: html;
 
 // -------- Colors -----------
 @primary-color: @blue-6;
@@ -1557,30 +1551,22 @@ this.tinycolor = tinycolor;
 @body-background: #fff;
 // Base background color for most components
 @component-background: #fff;
-@font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
-  'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-  'Segoe UI Emoji', 'Segoe UI Symbol';
+@font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+  'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif,
+  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 @code-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+@heading-color: fade(@black, 85%);
 @text-color: fade(@black, 65%);
 @text-color-secondary: fade(@black, 45%);
-@text-color-warning: @gold-7;
-@text-color-danger: @red-7;
 @text-color-inverse: @white;
-@icon-color: inherit;
 @icon-color-hover: fade(@black, 75%);
-@heading-color: fade(#000, 85%);
 @heading-color-dark: fade(@white, 100%);
 @text-color-dark: fade(@white, 85%);
 @text-color-secondary-dark: fade(@white, 65%);
 @font-variant-base: tabular-nums;
-@font-feature-settings-base: 'tnum';
 @font-size-base: 14px;
 @font-size-lg: @font-size-base + 2px;
 @font-size-sm: 12px;
-@heading-1-size: ceil(@font-size-base * 2.71);
-@heading-2-size: ceil(@font-size-base * 2.14);
-@heading-3-size: ceil(@font-size-base * 1.71);
-@heading-4-size: ceil(@font-size-base * 1.42);
 @line-height-base: 1.5;
 @border-radius-base: 4px;
 @border-radius-sm: 2px;
@@ -1660,8 +1646,6 @@ this.tinycolor = tinycolor;
 @btn-font-weight: 400;
 @btn-border-radius-base: @border-radius-base;
 @btn-border-radius-sm: @border-radius-base;
-@btn-border-width: @border-width-base;
-@btn-border-style: @border-style-base;
 @btn-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
 @btn-primary-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
 @btn-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
@@ -1712,7 +1696,6 @@ this.tinycolor = tinycolor;
 
 // Radio buttons
 @radio-button-bg: @btn-default-bg;
-@radio-button-checked-bg: @btn-default-bg;
 @radio-button-color: @btn-default-color;
 @radio-button-hover-color: @primary-5;
 @radio-button-active-color: @primary-7;
@@ -1738,7 +1721,7 @@ this.tinycolor = tinycolor;
 @screen-xl: 1200px;
 @screen-xl-min: @screen-xl;
 
-// Extra extra large screen / large desktop
+// Extra extra large screen / large descktop
 @screen-xxl: 1600px;
 @screen-xxl-min: @screen-xxl;
 
@@ -1772,12 +1755,12 @@ this.tinycolor = tinycolor;
 @layout-trigger-color-light: @text-color;
 
 // z-index list, order by `z-index`
-@zindex-table-fixed: auto;
 @zindex-affix: 10;
 @zindex-back-top: 10;
 @zindex-badge: 10;
 @zindex-picker-panel: 10;
 @zindex-popup-close: 10;
+@zindex-table-fixed: 20;
 @zindex-modal: 1000;
 @zindex-modal-mask: 1000;
 @zindex-message: 1010;
@@ -1826,7 +1809,6 @@ this.tinycolor = tinycolor;
 // Select
 // ---
 @select-border-color: @border-color-base;
-@select-item-selected-font-weight: 600;
 
 // Tooltip
 // ---
@@ -1863,9 +1845,7 @@ this.tinycolor = tinycolor;
 
 // Modal
 // --
-@modal-body-padding: 24px;
 @modal-header-bg: @component-background;
-@modal-footer-bg: tranparent;
 @modal-mask-bg: fade(@black, 65%);
 
 // Progress
@@ -1952,6 +1932,7 @@ this.tinycolor = tinycolor;
 @card-head-padding: 16px;
 @card-inner-head-padding: 12px;
 @card-padding-base: 24px;
+@card-padding-wider: 32px;
 @card-actions-background: @background-color-light;
 @card-background: #cfd8dc;
 @card-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
@@ -2020,12 +2001,6 @@ this.tinycolor = tinycolor;
 @pagination-item-size-sm: 24px;
 @pagination-font-family: Arial;
 @pagination-font-weight-active: 500;
-@pagination-item-bg-active: transparent;
-
-// PageHeader
-// ---
-@page-header-padding-horizontal: 24px;
-@page-header-padding-vertical: 16px;
 
 // Breadcrumb
 // ---
@@ -2106,6 +2081,7 @@ this.tinycolor = tinycolor;
 @list-footer-background: transparent;
 @list-empty-text-padding: @padding-md;
 @list-item-padding: @padding-sm 0;
+@list-item-content-margin: 0 0 @padding-md 0;
 @list-item-meta-margin-bottom: @padding-md;
 @list-item-meta-avatar-margin-right: @padding-md;
 @list-item-meta-title-margin-bottom: @padding-sm;
@@ -2116,11 +2092,6 @@ this.tinycolor = tinycolor;
 @statistic-content-font-size: 24px;
 @statistic-unit-font-size: 16px;
 @statistic-font-family: Tahoma, 'Helvetica Neue', @font-family;
-
-// Drawer
-// ---
-@drawer-header-padding: 16px 24px;
-@drawer-body-padding: 24px;
 
 // Mixins
 // --------------------------------------------------
@@ -2170,7 +2141,6 @@ this.tinycolor = tinycolor;
 
 .iconfont-mixin() {
   display: inline-block;
-  color: @icon-color;
   font-style: normal;
   line-height: 0;
   text-align: center;
@@ -2252,7 +2222,7 @@ this.tinycolor = tinycolor;
   font-variant: @font-variant-base;
   line-height: @line-height-base;
   list-style: none;
-  font-feature-settings: @font-feature-settings-base;
+  font-feature-settings: 'tnum';
 }
 
 .text-truncate() {
@@ -4002,14 +3972,8 @@ this.tinycolor = tinycolor;
 @gold-9: color(~`colorPalette('@{gold-6}', 9) `);
 @gold-10: color(~`colorPalette('@{gold-6}', 10) `);
 
-@preset-colors: pink, magenta, red, volcano, orange, yellow, gold, cyan, lime, green, blue, geekblue,
-  purple;
-
 // The prefix to use on all css classes from ant.
 @ant-prefix: ant;
-
-// An override for the html selector for theme prefixes
-@html-selector: html;
 
 // -------- Colors -----------
 @primary-color: @blue-6;
@@ -4045,30 +4009,22 @@ this.tinycolor = tinycolor;
 @body-background: #fff;
 // Base background color for most components
 @component-background: #fff;
-@font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
-  'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-  'Segoe UI Emoji', 'Segoe UI Symbol';
+@font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+  'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif,
+  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 @code-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+@heading-color: fade(@black, 85%);
 @text-color: fade(@black, 65%);
 @text-color-secondary: fade(@black, 45%);
-@text-color-warning: @gold-7;
-@text-color-danger: @red-7;
 @text-color-inverse: @white;
-@icon-color: inherit;
 @icon-color-hover: fade(@black, 75%);
-@heading-color: fade(#000, 85%);
 @heading-color-dark: fade(@white, 100%);
 @text-color-dark: fade(@white, 85%);
 @text-color-secondary-dark: fade(@white, 65%);
 @font-variant-base: tabular-nums;
-@font-feature-settings-base: 'tnum';
 @font-size-base: 14px;
 @font-size-lg: @font-size-base + 2px;
 @font-size-sm: 12px;
-@heading-1-size: ceil(@font-size-base * 2.71);
-@heading-2-size: ceil(@font-size-base * 2.14);
-@heading-3-size: ceil(@font-size-base * 1.71);
-@heading-4-size: ceil(@font-size-base * 1.42);
 @line-height-base: 1.5;
 @border-radius-base: 4px;
 @border-radius-sm: 2px;
@@ -4148,8 +4104,6 @@ this.tinycolor = tinycolor;
 @btn-font-weight: 400;
 @btn-border-radius-base: @border-radius-base;
 @btn-border-radius-sm: @border-radius-base;
-@btn-border-width: @border-width-base;
-@btn-border-style: @border-style-base;
 @btn-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
 @btn-primary-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
 @btn-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
@@ -4200,7 +4154,6 @@ this.tinycolor = tinycolor;
 
 // Radio buttons
 @radio-button-bg: @btn-default-bg;
-@radio-button-checked-bg: @btn-default-bg;
 @radio-button-color: @btn-default-color;
 @radio-button-hover-color: @primary-5;
 @radio-button-active-color: @primary-7;
@@ -4226,7 +4179,7 @@ this.tinycolor = tinycolor;
 @screen-xl: 1200px;
 @screen-xl-min: @screen-xl;
 
-// Extra extra large screen / large desktop
+// Extra extra large screen / large descktop
 @screen-xxl: 1600px;
 @screen-xxl-min: @screen-xxl;
 
@@ -4260,12 +4213,12 @@ this.tinycolor = tinycolor;
 @layout-trigger-color-light: @text-color;
 
 // z-index list, order by `z-index`
-@zindex-table-fixed: auto;
 @zindex-affix: 10;
 @zindex-back-top: 10;
 @zindex-badge: 10;
 @zindex-picker-panel: 10;
 @zindex-popup-close: 10;
+@zindex-table-fixed: 20;
 @zindex-modal: 1000;
 @zindex-modal-mask: 1000;
 @zindex-message: 1010;
@@ -4314,7 +4267,6 @@ this.tinycolor = tinycolor;
 // Select
 // ---
 @select-border-color: @border-color-base;
-@select-item-selected-font-weight: 600;
 
 // Tooltip
 // ---
@@ -4351,9 +4303,7 @@ this.tinycolor = tinycolor;
 
 // Modal
 // --
-@modal-body-padding: 24px;
 @modal-header-bg: @component-background;
-@modal-footer-bg: tranparent;
 @modal-mask-bg: fade(@black, 65%);
 
 // Progress
@@ -4440,6 +4390,7 @@ this.tinycolor = tinycolor;
 @card-head-padding: 16px;
 @card-inner-head-padding: 12px;
 @card-padding-base: 24px;
+@card-padding-wider: 32px;
 @card-actions-background: @background-color-light;
 @card-background: #cfd8dc;
 @card-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
@@ -4508,12 +4459,6 @@ this.tinycolor = tinycolor;
 @pagination-item-size-sm: 24px;
 @pagination-font-family: Arial;
 @pagination-font-weight-active: 500;
-@pagination-item-bg-active: transparent;
-
-// PageHeader
-// ---
-@page-header-padding-horizontal: 24px;
-@page-header-padding-vertical: 16px;
 
 // Breadcrumb
 // ---
@@ -4594,6 +4539,7 @@ this.tinycolor = tinycolor;
 @list-footer-background: transparent;
 @list-empty-text-padding: @padding-md;
 @list-item-padding: @padding-sm 0;
+@list-item-content-margin: 0 0 @padding-md 0;
 @list-item-meta-margin-bottom: @padding-md;
 @list-item-meta-avatar-margin-right: @padding-md;
 @list-item-meta-title-margin-bottom: @padding-sm;
@@ -4604,11 +4550,6 @@ this.tinycolor = tinycolor;
 @statistic-content-font-size: 24px;
 @statistic-unit-font-size: 16px;
 @statistic-font-family: Tahoma, 'Helvetica Neue', @font-family;
-
-// Drawer
-// ---
-@drawer-header-padding: 16px 24px;
-@drawer-body-padding: 24px;
 
 // Mixins
 // --------------------------------------------------
@@ -4658,7 +4599,6 @@ this.tinycolor = tinycolor;
 
 .iconfont-mixin() {
   display: inline-block;
-  color: @icon-color;
   font-style: normal;
   line-height: 0;
   text-align: center;
@@ -4740,7 +4680,7 @@ this.tinycolor = tinycolor;
   font-variant: @font-variant-base;
   line-height: @line-height-base;
   list-style: none;
-  font-feature-settings: @font-feature-settings-base;
+  font-feature-settings: 'tnum';
 }
 
 /* stylelint-disable at-rule-no-unknown */
@@ -4753,7 +4693,7 @@ this.tinycolor = tinycolor;
 // Normalize is licensed MIT. https://github.com/necolas/normalize.css
 
 // HTML & Body reset
-@{html-selector},
+html,
 body {
   .square(100%);
 }
@@ -4780,7 +4720,7 @@ input::-ms-reveal {
   box-sizing: border-box; // 1
 }
 
-@{html-selector} {
+html {
   font-family: sans-serif; // 2
   line-height: 1.15; // 3
   -webkit-text-size-adjust: 100%; // 4
@@ -4822,7 +4762,7 @@ body {
   font-variant: @font-variant-base;
   line-height: @line-height-base;
   background-color: @body-background; // 2
-  font-feature-settings: @font-feature-settings-base;
+  font-feature-settings: 'tnum';
 }
 
 // Suppress the focus outline on elements that cannot be accessed via keyboard.
@@ -4976,6 +4916,11 @@ a {
   transition: color 0.3s;
   -webkit-text-decoration-skip: objects; // remove gaps in links underline in iOS 8+ and Safari 8+.
 
+  &:focus {
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
+  }
+
   &:hover {
     color: @link-hover-color;
   }
@@ -5113,7 +5058,7 @@ select {
 //    controls in Android 4.
 // 2. Correct the inability to style clickable types in iOS and Safari.
 button,
-@{html-selector} [type="button"], /* 1 */
+html [type="button"], /* 1 */
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button; // 2
@@ -5794,137 +5739,6 @@ mark {
   }
 }
 
-// cdk overlay
-.cdk-overlay-container {
-  pointer-events: none;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  z-index: 1000;
-}
-
-.cdk-overlay-backdrop {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  -webkit-tap-highlight-color: transparent;
-  transition: opacity .4s cubic-bezier(.25, .8, .25, 1);
-  opacity: 0;
-  position: absolute;
-  pointer-events: auto;
-  z-index: 1000;
-}
-
-.cdk-overlay-pane {
-  position: absolute;
-  pointer-events: auto;
-  z-index: 1000; // Give an opportunity to the content own to manage their z-index such as Modal
-}
-
-.cdk-overlay-connected-position-bounding-box {
-  position: absolute;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  min-width: 1px;
-  min-height: 1px;
-}
-
-// Used when disabling global scrolling.
-.cdk-global-scrollblock {
-  position: fixed;
-
-  // Necessary for the content not to lose its width. Note that we're using 100%, instead of
-  // 100vw, because 100vw includes the width plus the scrollbar, whereas 100% is the width
-  // that the element had before we made it `fixed`.
-  width: 100%;
-
-  // Note: this will always add a scrollbar to whatever element it is on, which can
-  // potentially result in double scrollbars. It shouldn't be an issue, because we won't
-  // block scrolling on a page that doesn't have a scrollbar in the first place.
-  overflow-y: scroll;
-
-  // https://github.com/angular/material2/issues/15051
-  body {
-    overflow-x: visible;
-  }
-}
-
-.nz-overlay-transparent-backdrop {
-  &, &.cdk-overlay-backdrop-showing {
-    opacity: 0;
-  }
-}
-
-textarea.cdk-textarea-autosize-measuring {
-  height: auto !important;
-  overflow: hidden !important;
-  // Having 2px top and bottom padding seems to fix a bug where Chrome gets an incorrect
-  // measurement. We just have to account for it later and subtract it off the final result.
-  padding: 2px 0 !important;
-  box-sizing: content-box !important;
-}
-
-.nz-animate-disabled {
-  // drawer
-  &.ant-drawer {
-    &.ant-drawer-open .ant-drawer-mask {
-      animation: none;
-      transition: none;
-    }
-
-    & > * {
-      transition: none;
-    }
-  }
-
-  // modal
-  .ant-modal-mask, .ant-modal {
-    animation: none;
-    transition: none;
-
-    &.zoom-enter, &.zoom-leave,
-    &.zoom-enter-active, &.zoom-leave-active {
-      animation: none;
-      transition: none;
-    }
-  }
-
-  // menu
-  &.ant-menu {
-    transition: none;
-
-    .ant-menu-item, .ant-menu-submenu-title {
-      transition: none;
-    }
-
-    .ant-menu-item .anticon, .ant-menu-submenu-title .anticon {
-      transition: none;
-
-      & + span {
-        transition: none;
-      }
-    }
-  }
-
-  // tabs
-  &.ant-tabs {
-    .ant-tabs-top-content.ant-tabs-content-animated,
-    .ant-tabs-bottom-content.ant-tabs-content-animated,
-    .ant-tabs-top-content > .ant-tabs-tabpane,
-    .ant-tabs-bottom-content > .ant-tabs-tabpane,
-    &.ant-tabs-left .ant-tabs-ink-bar-animated,
-    &.ant-tabs-right .ant-tabs-ink-bar-animated,
-    &.ant-tabs-top .ant-tabs-ink-bar-animated,
-    &.ant-tabs-bottom .ant-tabs-ink-bar-animated {
-      transition: none;
-    }
-  }
-}
-
 .@{ant-prefix}-affix {
   position: fixed;
   z-index: @zindex-affix;
@@ -6247,10 +6061,6 @@ textarea.cdk-textarea-autosize-measuring {
   }
 
   &-disabled {
-    .disabled();
-  }
-
-  &[disabled] {
     .disabled();
   }
 
@@ -6850,18 +6660,6 @@ textarea.cdk-textarea-autosize-measuring {
     &-warning {
       background-color: @warning-color;
     }
-
-    // mixin to iterate over colors and create CSS class for each one
-    .make-color-classes(@i: length(@preset-colors)) when (@i > 0) {
-      .make-color-classes(@i - 1);
-      @color: extract(@preset-colors, @i);
-      @darkColor: '@{color}-6';
-      &-@{color} {
-        background: @@darkColor;
-      }
-    }
-    .make-color-classes();
-
     &-text {
       margin-left: 8px;
       color: @text-color;
@@ -6881,9 +6679,7 @@ textarea.cdk-textarea-autosize-measuring {
   }
 
   &-not-a-wrapper {
-    &:not(.@{badge-prefix-cls}-status) {
-      vertical-align: middle;
-    }
+    vertical-align: middle;
 
     .@{ant-prefix}-scroll-number {
       position: relative;
@@ -6918,10 +6714,6 @@ textarea.cdk-textarea-autosize-measuring {
       height: @badge-height;
       margin: 0;
     }
-  }
-
-  &-symbol {
-    vertical-align: top;
   }
 }
 
@@ -7142,7 +6934,7 @@ textarea.cdk-textarea-autosize-measuring {
   white-space: nowrap;
   text-align: center;
   background-image: none;
-  border: @btn-border-width @btn-border-style transparent;
+  border: @border-width-base @border-style-base transparent;
   box-shadow: @btn-shadow;
   cursor: pointer;
   transition: all 0.3s @ease-in-out;
@@ -7943,6 +7735,19 @@ a.@{btn-prefix-cls} {
         border-right: @border-width-base @border-style-base @border-color-split;
       }
     }
+  }
+
+  &-wider-padding &-head {
+    padding: 0 @card-padding-wider;
+  }
+
+  &-wider-padding &-body {
+    padding: @card-padding-base @card-padding-wider;
+  }
+
+  &-padding-transition &-head,
+  &-padding-transition &-body {
+    transition: padding 0.3s;
   }
 
   &-type-inner &-head {
@@ -8898,6 +8703,314 @@ a.@{btn-prefix-cls} {
   }
 }
 
+// cdk overlay
+
+.cdk-overlay-container {
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+}
+
+.cdk-overlay-backdrop {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity .4s cubic-bezier(.25, .8, .25, 1);
+  opacity: 0;
+  position: absolute;
+  pointer-events: auto;
+  z-index: 1000;
+}
+
+.cdk-overlay-pane {
+  position: absolute;
+  pointer-events: auto;
+  z-index: 1000; // Give an opportunity to the content own to manage their z-index such as Modal
+}
+
+.cdk-overlay-connected-position-bounding-box {
+  position: absolute;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  min-width: 1px;
+  min-height: 1px;
+}
+
+// Used when disabling global scrolling.
+.cdk-global-scrollblock {
+  position: fixed;
+
+  // Necessary for the content not to lose its width. Note that we're using 100%, instead of
+  // 100vw, because 100vw includes the width plus the scrollbar, whereas 100% is the width
+  // that the element had before we made it `fixed`.
+  width: 100%;
+
+  // Note: this will always add a scrollbar to whatever element it is on, which can
+  // potentially result in double scrollbars. It shouldn't be an issue, because we won't
+  // block scrolling on a page that doesn't have a scrollbar in the first place.
+  overflow-y: scroll;
+
+  // https://github.com/angular/material2/issues/15051
+  body {
+    overflow-x: visible;
+  }
+}
+
+.nz-overlay-transparent-backdrop {
+  &, &.cdk-overlay-backdrop-showing {
+    opacity: 0;
+  }
+}
+
+@table-prefix-cls: ~'@{ant-prefix}-table';
+@table-td-cls: ~'@{table-prefix-cls}-td';
+@table-th-cls: ~'@{table-prefix-cls}-th';
+@table-th-left-cls: ~'@{table-th-cls}-left';
+@table-th-right-cls: ~'@{table-th-cls}-right';
+@table-td-left-cls: ~'@{table-td-cls}-left';
+@table-td-right-cls: ~'@{table-td-cls}-right';
+
+.box-shadow-left() {
+  .@{table-th-right-cls}-sticky,
+  .@{table-td-right-cls}-sticky {
+    box-shadow: -6px 0 6px 0px rgba(0, 0, 0, .05);
+  }
+}
+
+.box-shadow-right() {
+  .@{table-th-left-cls}-sticky,
+  .@{table-td-left-cls}-sticky {
+    box-shadow: 6px 0 6px 0px rgba(0, 0, 0, .05);
+  }
+}
+
+.border-left() {
+  .@{table-th-right-cls}-sticky,
+  .@{table-td-right-cls}-sticky {
+    border-right: @border-width-base @border-style-base @border-color-split;
+  }
+}
+
+.border-right() {
+  .@{table-th-left-cls}-sticky,
+  .@{table-td-left-cls}-sticky {
+    border-left: @border-width-base @border-style-base @border-color-split;
+  }
+}
+
+.@{table-prefix-cls}-scroll-position-middle,
+.@{table-prefix-cls}-scroll-position-left {
+  .@{table-td-right-cls}-sticky + .@{table-td-right-cls}-sticky {
+    box-shadow: none;
+  }
+
+  .@{table-th-right-cls}-sticky + .@{table-th-right-cls}-sticky {
+    box-shadow: none;
+  }
+}
+
+.@{table-th-left-cls}-sticky,
+.@{table-th-right-cls}-sticky,
+.@{table-td-right-cls}-sticky,
+.@{table-td-left-cls}-sticky {
+  position: sticky !important;
+  z-index: 1;
+}
+
+.@{table-td-left-cls}-sticky,
+.@{table-td-right-cls}-sticky {
+  background: @component-background;
+}
+
+.@{table-prefix-cls}-tbody {
+  & > tr {
+    &:hover {
+      & > td {
+        &.@{table-td-left-cls}-sticky {
+          background: @table-row-hover-bg;
+        }
+
+        &.@{table-td-right-cls}-sticky {
+          background: @table-row-hover-bg;
+        }
+      }
+    }
+  }
+}
+
+.@{table-prefix-cls}-thead > tr > th .@{table-prefix-cls}-column-sorters > nz-dropdown {
+  position: static !important;
+}
+
+.@{table-prefix-cls}-scroll-position-middle {
+  .box-shadow-right;
+  .box-shadow-left;
+}
+
+.@{table-prefix-cls}-scroll-position-left {
+  .box-shadow-left;
+}
+
+.@{table-prefix-cls}-scroll-position-right {
+  .box-shadow-right;
+}
+
+.@{table-prefix-cls}-bordered {
+  &.@{table-prefix-cls}-scroll-position-middle {
+    .border-right;
+    .border-left;
+  }
+
+  &.@{table-prefix-cls}-scroll-position-left {
+    .border-left;
+  }
+
+  &.@{table-prefix-cls}-scroll-position-right {
+    .border-right;
+  }
+}
+
+.@{table-prefix-cls}-middle {
+  > .@{table-prefix-cls}-content {
+    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-body > .cdk-virtual-scroll-content-wrapper > table {
+      > .@{table-prefix-cls}-thead > tr > th,
+      > .@{table-prefix-cls}-tbody > tr > td {
+        padding: @table-padding-vertical-md @table-padding-horizontal-md;
+      }
+    }
+  }
+}
+
+.@{table-prefix-cls}-small {
+  > .@{table-prefix-cls}-content {
+    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-header > table,
+    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-body > table,
+    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-body > .cdk-virtual-scroll-content-wrapper > table {
+      border: 0;
+
+      > .@{table-prefix-cls}-thead > tr > th {
+        &.@{table-th-left-cls}-sticky,
+        &.@{table-th-right-cls}-sticky {
+          background: @component-background;
+        }
+      }
+
+      > .@{table-prefix-cls}-thead > tr > th,
+      > .@{table-prefix-cls}-tbody > tr > td {
+        padding: @table-padding-vertical-sm @table-padding-horizontal-sm;
+      }
+    }
+  }
+}
+
+// hack tree css
+.ant-tree {
+  &.ant-tree-show-line {
+    > nz-tree-node:not(:last-child), .ant-tree-child-tree > nz-tree-node:not(:last-child) {
+      > li:before {
+        content: ' ';
+        width: 1px;
+        border-left: 1px solid @border-color-base;
+        height: 100%;
+        position: absolute;
+        left: 12px;
+        margin: 22px 0;
+      }
+    }
+
+    .ant-tree-child-tree > nz-tree-node:last-child {
+      > li:before {
+        content: ' ';
+        width: 1px;
+        border-left: 0px solid @border-color-base;
+        height: 100%;
+        position: absolute;
+        left: 12px;
+        margin: 22px 0;
+      }
+    }
+  }
+
+  .font-highlight {
+    color: @highlight-color;
+  }
+}
+
+textarea.cdk-textarea-autosize-measuring {
+  height: auto !important;
+  overflow: hidden !important;
+  // Having 2px top and bottom padding seems to fix a bug where Chrome gets an incorrect
+  // measurement. We just have to account for it later and subtract it off the final result.
+  padding: 2px 0 !important;
+  box-sizing: content-box !important;
+}
+
+.nz-animate-disabled {
+
+  // drawer
+  &.ant-drawer {
+    &.ant-drawer-open .ant-drawer-mask {
+      animation: none;
+      transition: none;
+    }
+
+    & > * {
+      transition: none;
+    }
+  }
+
+  // modal
+  .ant-modal-mask, .ant-modal {
+    animation: none;
+    transition: none;
+
+    &.zoom-enter, &.zoom-leave,
+    &.zoom-enter-active, &.zoom-leave-active {
+      animation: none;
+      transition: none;
+    }
+  }
+
+  // menu
+  &.ant-menu {
+    transition: none;
+
+    .ant-menu-item, .ant-menu-submenu-title {
+      transition: none;
+    }
+
+    .ant-menu-item .anticon, .ant-menu-submenu-title .anticon {
+      transition: none;
+
+      & + span {
+        transition: none;
+      }
+    }
+  }
+
+  // tabs
+  &.ant-tabs {
+    .ant-tabs-top-content.ant-tabs-content-animated,
+    .ant-tabs-bottom-content.ant-tabs-content-animated,
+    .ant-tabs-top-content > .ant-tabs-tabpane,
+    .ant-tabs-bottom-content > .ant-tabs-tabpane,
+    &.ant-tabs-left .ant-tabs-ink-bar-animated,
+    &.ant-tabs-right .ant-tabs-ink-bar-animated,
+    &.ant-tabs-top .ant-tabs-ink-bar-animated,
+    &.ant-tabs-bottom .ant-tabs-ink-bar-animated {
+      transition: none;
+    }
+  }
+
+}
+
 @calendar-prefix-cls: ~'@{ant-prefix}-calendar';
 @calendar-timepicker-prefix-cls: ~'@{ant-prefix}-calendar-time-picker';
 
@@ -8937,7 +9050,6 @@ a.@{btn-prefix-cls} {
   position: relative;
   display: inline-block;
   outline: none;
-  cursor: text;
   transition: opacity 0.3s;
 
   &-input {
@@ -9235,7 +9347,6 @@ a.@{btn-prefix-cls} {
   }
 
   &-disabled-cell &-date {
-    position: relative;
     width: auto;
     color: @disabled-color;
     background: @disabled-bg;
@@ -9247,18 +9358,6 @@ a.@{btn-prefix-cls} {
       background: @disabled-bg;
     }
   }
-
-  &-disabled-cell&-selected-day &-date::before {
-    position: absolute;
-    top: -1px;
-    left: 5px;
-    width: 24px;
-    height: 24px;
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: @border-radius-sm;
-    content: '';
-  }
-
   &-disabled-cell&-today &-date {
     position: relative;
     padding-right: 5px;
@@ -9371,13 +9470,10 @@ a.@{btn-prefix-cls} {
 
 .@{calendar-prefix-cls}-range-picker-separator {
   display: inline-block;
-  min-width: 10px;
+  width: 10px;
   height: 100%;
   color: @text-color-secondary;
-  white-space: nowrap;
-  text-align: center;
   vertical-align: top;
-  pointer-events: none;
 }
 
 .@{calendar-prefix-cls}-range {
@@ -9419,24 +9515,20 @@ a.@{btn-prefix-cls} {
   &-middle {
     position: absolute;
     left: 50%;
-    z-index: 1;
+    width: 20px;
     height: @input-box-height;
-    margin: 1px 0 0 0;
-    padding: 0 200px 0 0;
+    margin-left: -132px;
     color: @text-color-secondary;
     line-height: @input-box-height;
     text-align: center;
-    transform: translateX(-50%);
-    pointer-events: none;
   }
 
   &-right .@{calendar-prefix-cls}-date-input-wrap {
-    margin-left: -90px;
+    margin-left: -118px;
   }
 
   &.@{calendar-prefix-cls}-time &-middle {
-    padding: 0 10px 0 0;
-    transform: translateX(-50%);
+    margin-left: -12px;
   }
 
   &.@{calendar-prefix-cls}-time &-right .@{calendar-prefix-cls}-date-input-wrap {
@@ -10129,10 +10221,8 @@ a.@{btn-prefix-cls} {
   z-index: @zindex-modal;
   width: 0%;
   height: 100%;
-
   > * {
-    transition: transform @animation-duration-slow @ease-base-in,
-      box-shadow @animation-duration-slow @ease-base-in;
+    transition: transform @animation-duration-slow @ease-base-in;
   }
 
   &-content-wrapper {
@@ -10269,7 +10359,7 @@ a.@{btn-prefix-cls} {
 
   &-header {
     position: relative;
-    padding: @drawer-header-padding;
+    padding: 16px 24px;
     color: @text-color;
     background: @component-background;
     border-bottom: @border-width-base @border-style-base @border-color-split;
@@ -10282,7 +10372,7 @@ a.@{btn-prefix-cls} {
   }
 
   &-body {
-    padding: @drawer-body-padding;
+    padding: 24px;
     font-size: @font-size-base;
     line-height: @line-height-base;
     word-wrap: break-word;
@@ -10410,6 +10500,9 @@ a.@{btn-prefix-cls} {
         padding: 5px @control-padding-horizontal;
         color: @text-color;
         transition: all 0.3s;
+        &:focus {
+          text-decoration: none;
+        }
       }
 
       &-selected,
@@ -10582,22 +10675,27 @@ a.@{btn-prefix-cls} {
   }
 
   // antd internal empty style
+  &-small {
+    margin: 8px 0;
+
+    .@{empty-prefix-cls}-image {
+      height: 35px;
+    }
+  }
+
   &-normal {
     margin: 32px 0;
-    color: @disabled-color;
 
     .@{empty-prefix-cls}-image {
       height: 40px;
     }
   }
+}
 
-  &-small {
-    margin: 8px 0;
-    color: @disabled-color;
-
-    .@{empty-prefix-cls}-image {
-      height: 35px;
-    }
+// Patch for popup adjust
+.@{ant-prefix}-select-dropdown--multiple .@{ant-prefix}-select-dropdown-menu-item {
+  .@{empty-prefix-cls}-small {
+    margin-left: @control-padding-horizontal + 20;
   }
 }
 
@@ -10831,12 +10929,11 @@ a.@{btn-prefix-cls} {
 @form-component-max-height: @input-height-lg;
 @form-feedback-icon-size: @font-size-base;
 @form-help-margin-top: (@form-component-height - @form-component-max-height) / 2 + 2px;
-@form-explain-font-size: @font-size-base;
 // Extends additional 1px to fix precision issue.
 // https://github.com/ant-design/ant-design/issues/12803
 // https://github.com/ant-design/ant-design/issues/8220
 @form-explain-precision: 1px;
-@form-explain-height: floor(@form-explain-font-size * @line-height-base);
+@form-explain-height: floor(@font-size-base * @line-height-base);
 
 .@{form-prefix-cls} {
   .reset-component;
@@ -10853,27 +10950,6 @@ a.@{btn-prefix-cls} {
   content: '*';
   .@{form-prefix-cls}-hide-required-mark & {
     display: none;
-  }
-}
-
-.@{form-prefix-cls}-item-label > label {
-  color: @label-color;
-
-  &::after {
-    & when (@form-item-trailing-colon=true) {
-      content: ':';
-    }
-    & when not (@form-item-trailing-colon=true) {
-      content: ' ';
-    }
-
-    position: relative;
-    top: -0.5px;
-    margin: 0 8px 0 2px;
-  }
-
-  &.@{form-prefix-cls}-item-no-colon::after {
-    content: ' ';
   }
 }
 
@@ -10944,13 +11020,29 @@ input[type='checkbox'] {
     text-align: right;
     vertical-align: middle;
 
-    &-left {
-      text-align: left;
+    label {
+      color: @label-color;
+
+      &::after {
+        & when (@form-item-trailing-colon=true) {
+          content: ':';
+        }
+        & when not (@form-item-trailing-colon=true) {
+          content: ' ';
+        }
+        position: relative;
+        top: -0.5px;
+        margin: 0 8px 0 2px;
+      }
     }
   }
 
   .@{ant-prefix}-switch {
     margin: 2px 0 4px;
+  }
+
+  &-no-colon &-label label::after {
+    content: ' ';
   }
 }
 
@@ -10960,7 +11052,6 @@ input[type='checkbox'] {
   min-height: @form-explain-height + @form-explain-precision;
   margin-top: @form-help-margin-top;
   color: @text-color-secondary;
-  font-size: @form-explain-font-size;
   line-height: @line-height-base;
   transition: color 0.3s @ease-out; // sync input color transition
 }
@@ -11555,6 +11646,7 @@ form {
 
 .@{ant-prefix}-col {
   position: relative;
+  display: block;
 }
 
 .make-grid-columns();
@@ -11608,8 +11700,6 @@ form {
   .make-grid(-xxl);
 }
 
-@icon-prefix-cls: ~'@{ant-prefix}-icon';
-
 // Input styles
 .@{ant-prefix}-input {
   .reset-component;
@@ -11640,32 +11730,10 @@ form {
 }
 
 .@{ant-prefix}-input-password-icon {
-  color: @text-color-secondary;
   cursor: pointer;
   transition: all 0.3s;
-
   &:hover {
     color: #333;
-  }
-}
-
-.@{ant-prefix}-input-clear-icon {
-  color: @disabled-color;
-  font-size: @font-size-sm;
-  vertical-align: top;
-  cursor: pointer;
-  transition: color 0.3s;
-
-  &:hover {
-    color: @text-color-secondary;
-  }
-
-  &:active {
-    color: @text-color;
-  }
-
-  + i {
-    margin-left: 6px;
   }
 }
 
@@ -11682,12 +11750,7 @@ form {
   }
 
   &-enter-button {
-    input {
-      border-right: 0;
-    }
-
-    & + .@{ant-prefix}-input-group-addon,
-    input + .@{ant-prefix}-input-group-addon {
+    .@{ant-prefix}-input-group-addon {
       padding: 0;
       border: 0;
 
@@ -12004,16 +12067,13 @@ form {
 .@{list-prefix-cls} {
   .reset-component;
   position: relative;
-
   * {
     outline: none;
   }
-
   &-pagination {
     margin-top: 24px;
     text-align: right;
   }
-
   &-more {
     margin-top: 12px;
     text-align: center;
@@ -12022,32 +12082,20 @@ form {
       padding-left: 32px;
     }
   }
-
   &-spin {
     min-height: 40px;
     text-align: center;
   }
-
   &-empty-text {
     padding: @list-empty-text-padding;
-    color: @disabled-color;
+    color: @text-color-secondary;
     font-size: @font-size-base;
     text-align: center;
   }
-
   &-item {
     display: flex;
     align-items: center;
     padding: @list-item-padding;
-
-    &-no-flex {
-      display: block;
-    }
-
-    &-content {
-      color: @text-color;
-    }
-
     &-meta {
       display: flex;
       flex: 1;
@@ -12078,6 +12126,14 @@ form {
         line-height: 22px;
       }
     }
+    &-content {
+      display: flex;
+      flex: 1;
+      justify-content: flex-end;
+    }
+    &-content-single {
+      justify-content: flex-start;
+    }
     &-action {
       flex: 0 0 auto;
       margin-left: 48px;
@@ -12106,6 +12162,10 @@ form {
         margin-top: -7px;
         background-color: @border-color-split;
       }
+    }
+    &-main {
+      display: flex;
+      flex: 1;
     }
   }
 
@@ -12160,20 +12220,19 @@ form {
   }
 
   &-vertical &-item {
-    align-items: initial;
-
+    display: block;
+    &-extra-wrap {
+      display: flex;
+    }
     &-main {
       display: block;
       flex: 1;
     }
-
     &-extra {
-      margin-left: 40px;
+      margin-left: 58px;
     }
-
     &-meta {
       margin-bottom: @list-item-meta-margin-bottom;
-
       &-title {
         margin-bottom: @list-item-meta-title-margin-bottom;
         color: @heading-color;
@@ -12181,11 +12240,14 @@ form {
         line-height: 24px;
       }
     }
-
+    &-content {
+      display: block;
+      margin: @list-item-content-margin;
+      color: @text-color;
+      font-size: @font-size-base;
+    }
     &-action {
-      margin-top: @padding-md;
       margin-left: auto;
-
       > li {
         padding: 0 16px;
         &:first-child {
@@ -12196,12 +12258,14 @@ form {
   }
 
   &-grid &-item {
-    display: block;
-    max-width: 100%;
     margin-bottom: 16px;
     padding-top: 0;
     padding-bottom: 0;
     border-bottom: none;
+    &-content {
+      display: block;
+      max-width: 100%;
+    }
   }
 }
 
@@ -12265,7 +12329,7 @@ form {
   }
 }
 
-@media screen and (max-width: @screen-sm) {
+@media screen and (max-width: @screen-xs) {
   .@{list-prefix-cls} {
     &-item {
       flex-wrap: wrap;
@@ -12277,12 +12341,14 @@ form {
 
   .@{list-prefix-cls}-vertical {
     .@{list-prefix-cls}-item {
-      flex-wrap: wrap-reverse;
+      &-extra-wrap {
+        flex-wrap: wrap-reverse;
+      }
       &-main {
         min-width: 220px;
       }
       &-extra {
-        margin: auto auto 16px;
+        margin-left: 0;
       }
     }
   }
@@ -12472,6 +12538,9 @@ form {
     &:hover {
       color: @menu-highlight-color;
     }
+    &:focus {
+      text-decoration: none;
+    }
     &::before {
       position: absolute;
       top: 0;
@@ -12533,11 +12602,9 @@ form {
   &-vertical&-sub,
   &-vertical-left&-sub,
   &-vertical-right&-sub {
-    min-width: 160px;
     padding: 0;
     border-right: 0;
     transform-origin: 0 0;
-
     .@{menu-prefix-cls}-item {
       left: 0;
       margin-left: 0;
@@ -12552,8 +12619,11 @@ form {
     }
   }
 
-  &-horizontal&-sub {
-    min-width: 114px; // in case of submenu width is too big: https://codesandbox.io/s/qvpwm6mk66
+  &-horizontal&-sub,
+  &-vertical&-sub,
+  &-vertical-left&-sub,
+  &-vertical-right&-sub {
+    min-width: 160px;
   }
 
   &-item,
@@ -13113,8 +13183,6 @@ form {
 
 @dialog-prefix-cls: ~'@{ant-prefix}-modal';
 @table-prefix-cls: ~'@{ant-prefix}-table';
-@modal-footer-padding-vertical: 10px;
-@modal-footer-padding-horizontal: 16px;
 
 .@{dialog-prefix-cls} {
   .reset-component;
@@ -13197,16 +13265,15 @@ form {
   }
 
   &-body {
-    padding: @modal-body-padding;
+    padding: 24px;
     font-size: @font-size-base;
     line-height: @line-height-base;
     word-wrap: break-word;
   }
 
   &-footer {
-    padding: @modal-footer-padding-vertical @modal-footer-padding-horizontal;
+    padding: 10px 16px;
     text-align: right;
-    background: @modal-footer-bg;
     border-top: @border-width-base @border-style-base @border-color-split;
     border-radius: 0 0 @border-radius-base @border-radius-base;
     button + button {
@@ -13306,6 +13373,7 @@ form {
 
     .@{confirm-prefix-cls}-content {
       margin-top: 8px;
+      margin-left: 38px;
       color: @text-color;
       font-size: @font-size-base;
     }
@@ -13314,11 +13382,6 @@ form {
       float: left;
       margin-right: 16px;
       font-size: 22px;
-
-      // `content` after `icon` should set marginLeft
-      + .@{confirm-prefix-cls}-title + .@{confirm-prefix-cls}-content {
-        margin-left: 38px;
-      }
     }
   }
 
@@ -13432,7 +13495,7 @@ form {
       font-size: @font-size-base;
     }
 
-    .@{iconfont-css-prefix}&-icon {
+    &-icon {
       position: absolute;
       margin-left: 4px;
       font-size: 24px;
@@ -13458,6 +13521,10 @@ form {
       right: 22px;
       color: @text-color-secondary;
       outline: none;
+
+      a&:focus {
+        text-decoration: none;
+      }
 
       &:hover {
         color: shade(@text-color-secondary, 40%);
@@ -13545,10 +13612,11 @@ form {
 .@{pageheader-prefix-cls} {
   .reset-component;
   position: relative;
-  padding: @page-header-padding-vertical @page-header-padding-horizontal;
+  padding: 16px 32px;
   background: @component-background;
 
   &.@{pageheader-prefix-cls}-has-footer {
+    padding: 20px 32px;
     padding-bottom: 0;
   }
 
@@ -13599,7 +13667,7 @@ form {
     &-extra {
       position: absolute;
       top: 16px;
-      right: @page-header-padding-horizontal;
+      right: 32px;
       > * {
         margin-right: 8px;
       }
@@ -13676,6 +13744,7 @@ form {
     a {
       margin: 0 6px;
       color: @text-color;
+      text-decoration: none;
       transition: none;
     }
 
@@ -13690,7 +13759,6 @@ form {
 
     &-active {
       font-weight: @pagination-font-weight-active;
-      background: @pagination-item-bg-active;
       border-color: @primary-color;
 
       a {
@@ -14569,7 +14637,7 @@ span.@{radio-prefix-cls} + * {
   &-checked {
     z-index: 1;
     color: @radio-dot-color;
-    background: @radio-button-checked-bg;
+    background: @radio-button-bg;
     border-color: @radio-dot-color;
     box-shadow: -1px 0 0 0 @radio-dot-color;
     &::before {
@@ -14919,8 +14987,7 @@ span.@{radio-prefix-cls} + * {
           line-height: @input-height-lg - 8px;
         }
       }
-      .@{select-prefix-cls}-selection__clear,
-      .@{select-prefix-cls}-arrow {
+      .@{select-prefix-cls}-selection__clear {
         top: @input-height-lg / 2;
       }
     }
@@ -14942,8 +15009,7 @@ span.@{radio-prefix-cls} + * {
           line-height: @input-height-sm - 10px;
         }
       }
-      .@{select-prefix-cls}-selection__clear,
-      .@{select-prefix-cls}-arrow {
+      .@{select-prefix-cls}-selection__clear {
         top: @input-height-sm / 2;
       }
     }
@@ -15103,8 +15169,7 @@ span.@{radio-prefix-cls} + * {
       }
     }
 
-    .@{select-prefix-cls}-selection__clear,
-    .@{select-prefix-cls}-arrow {
+    .@{select-prefix-cls}-selection__clear {
       top: @input-height-base / 2;
     }
   }
@@ -15113,8 +15178,7 @@ span.@{radio-prefix-cls} + * {
     padding-right: 16px;
   }
 
-  &-allow-clear &-selection--multiple &-selection__rendered,
-  &-show-arrow &-selection--multiple &-selection__rendered {
+  &-allow-clear &-selection--multiple &-selection__rendered {
     margin-right: 20px; // In case that clear button will overlap content
   }
 
@@ -15151,8 +15215,7 @@ span.@{radio-prefix-cls} + * {
       transition: all 0.3s @ease-in-out, height 0s;
     }
   }
-  &-combobox&-allow-clear &-selection:hover &-selection__rendered,
-  &-combobox&-show-arrow &-selection:hover &-selection__rendered {
+  &-combobox&-allow-clear &-selection:hover &-selection__rendered {
     margin-right: 20px; // In case that clear button will overlap content
   }
 }
@@ -15267,7 +15330,7 @@ span.@{radio-prefix-cls} + * {
         &,
         &:hover {
           color: @text-color;
-          font-weight: @select-item-selected-font-weight;
+          font-weight: 600;
           background-color: @background-color-light;
         }
       }
@@ -15298,7 +15361,7 @@ span.@{radio-prefix-cls} + * {
         font-size: 12px;
         text-shadow: 0 0.1px 0, 0.1px 0 0, 0 -0.1px 0, -0.1px 0;
         transform: translateY(-50%);
-        transition: all 0.2s;
+        transition: all .2s;
       }
 
       &:hover .@{select-prefix-cls}-selected-icon {
@@ -15315,12 +15378,6 @@ span.@{radio-prefix-cls} + * {
         color: @primary-color;
       }
     }
-  }
-
-  // Patch for popup adjust
-  // https://github.com/ant-design/ant-design/issues/14422
-  &--empty&--multiple &-menu-item {
-    padding-right: @control-padding-horizontal;
   }
 
   &-container-open,
@@ -15384,8 +15441,6 @@ span.@{radio-prefix-cls} + * {
 
     // paragraph
     .@{skeleton-paragraph-prefix-cls} {
-      padding: 0;
-
       > li {
         width: 100%;
         height: 16px;
@@ -15669,8 +15724,6 @@ span.@{radio-prefix-cls} + * {
     position: relative;
     > div > .@{spin-prefix-cls} {
       position: absolute;
-      top: 0;
-      left: 0;
       z-index: 4;
       display: block;
       width: 100%;
@@ -15770,7 +15823,7 @@ span.@{radio-prefix-cls} + * {
 
     .square(@spin-dot-size);
 
-    &-item {
+    i {
       position: absolute;
       display: block;
       width: 9px;
@@ -15781,7 +15834,6 @@ span.@{radio-prefix-cls} + * {
       transform-origin: 50% 50%;
       opacity: 0.3;
       animation: antSpinMove 1s infinite linear alternate;
-
       &:nth-child(1) {
         top: 0;
         left: 0;
@@ -16249,13 +16301,6 @@ span.@{radio-prefix-cls} + * {
       }
     }
   }
-  &.@{steps-prefix-cls}-small:not(.@{steps-prefix-cls}-dot) {
-    .@{steps-prefix-cls}-item {
-      &-icon {
-        margin-left: 40px;
-      }
-    }
-  }
 }
 
 .@{steps-prefix-cls}-dot {
@@ -16631,43 +16676,30 @@ span.@{radio-prefix-cls} + * {
     }
 
     .@{table-prefix-cls}-column-sorter {
-      display: table-cell;
-      vertical-align: middle;
+      position: absolute;
+      top: 50%;
+      right: 6px;
+      width: 14px;
+      height: @font-size-lg + 1px;
+      margin-top: -(@font-size-lg + 1px) / 2;
+      color: @table-header-icon-color;
+      text-align: center;
+      transition: all 0.3s;
 
-      .@{table-prefix-cls}-column-sorter-inner {
-        height: 1em;
-        margin-top: 0.35em;
-        margin-left: 0.57142857em;
-        color: @table-header-icon-color;
-        line-height: 1em;
-        text-align: center;
+      &-up,
+      &-down {
+        .iconfont-size-under-12px(11px);
+        display: block;
+        height: 4px;
+        line-height: 4px;
         transition: all 0.3s;
-
-        .@{table-prefix-cls}-column-sorter-up,
-        .@{table-prefix-cls}-column-sorter-down {
-          .iconfont-size-under-12px(11px);
-          display: block;
-          height: 1em;
-          line-height: 1em;
-          transition: all 0.3s;
-          &.on {
-            color: @primary-color;
-          }
+        &.on {
+          color: @primary-color;
         }
+      }
 
-        &-full {
-          margin-top: -0.15em;
-
-          .@{table-prefix-cls}-column-sorter-up,
-          .@{table-prefix-cls}-column-sorter-down {
-            height: 0.5em;
-            line-height: 0.5em;
-          }
-
-          .@{table-prefix-cls}-column-sorter-down {
-            margin-top: 0.125em;
-          }
-        }
+      &-down {
+        margin-top: 4px;
       }
     }
 
@@ -16678,9 +16710,6 @@ span.@{radio-prefix-cls} + * {
       -webkit-background-clip: border-box; // For Chrome extra space: https://github.com/ant-design/ant-design/issues/14926
 
       &.@{table-prefix-cls}-column-has-filters {
-        // https://github.com/ant-design/ant-design/issues/12650
-        padding-right: 30px !important;
-
         .@{iconfont-css-prefix}-filter,
         .@{table-prefix-cls}-filter-icon {
           &.@{table-prefix-cls}-filter-open {
@@ -16688,7 +16717,7 @@ span.@{radio-prefix-cls} + * {
             background: @table-header-filter-active-bg;
           }
         }
-        // Very complicated styles logic but necessary
+        // Very complicated styles logic but neccessary
         &:hover {
           .@{iconfont-css-prefix}-filter,
           .@{table-prefix-cls}-filter-icon {
@@ -16719,37 +16748,39 @@ span.@{radio-prefix-cls} + * {
           }
         }
       }
+
+      // https://github.com/ant-design/ant-design/issues/12650
+      &.@{table-prefix-cls}-column-has-sorters,
+      &.@{table-prefix-cls}-column-has-filters {
+        padding-right: 30px !important;
+      }
+
+      &.@{table-prefix-cls}-column-has-sorters.@{table-prefix-cls}-column-has-filters {
+        padding-right: 54px !important;
+      }
     }
 
-    .@{table-prefix-cls}-header-column {
-      display: inline-block;
-      vertical-align: top;
-
-      .@{table-prefix-cls}-column-sorters {
-        display: table;
-
-        > .@{table-prefix-cls}-column-title {
-          display: table-cell;
-          vertical-align: middle;
-        }
-
-        > *:not(.@{table-prefix-cls}-column-sorter) {
-          position: relative;
-        }
-        &::before {
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          background: transparent;
-          transition: all 0.3s;
-          content: '';
-        }
-        &:hover::before {
-          background: rgba(0, 0, 0, 0.04);
-        }
+    .@{table-prefix-cls}-column-sorters {
+      > *:not(.@{table-prefix-cls}-column-sorter) {
+        position: relative;
       }
+      &::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: transparent;
+        transition: all 0.3s;
+        content: '';
+      }
+      &:hover::before {
+        background: rgba(0, 0, 0, 0.04);
+      }
+    }
+
+    &.@{table-prefix-cls}-column-has-filters .@{table-prefix-cls}-column-sorter {
+      right: 28px + 6px;
     }
 
     &.@{table-prefix-cls}-column-has-sorters {
@@ -16968,7 +16999,7 @@ span.@{radio-prefix-cls} + * {
     position: relative;
     z-index: 1;
     padding: @table-padding-vertical @table-padding-horizontal;
-    color: @disabled-color;
+    color: @text-color-secondary;
     font-size: @font-size-base;
     text-align: center;
     background: @component-background;
@@ -17415,22 +17446,21 @@ span.@{radio-prefix-cls} + * {
     visibility: hidden;
   }
   &&-card &-card-bar &-tab {
-    height: @tabs-card-height;
     margin: 0;
     margin-right: 2px;
     padding: 0 16px;
     line-height: @tabs-card-height - 2px;
     background: @tabs-card-head-background;
     border: @border-width-base @border-style-base @border-color-split;
+    border-bottom: 0;
     border-radius: @border-radius-base @border-radius-base 0 0;
     transition: all 0.3s @ease-in-out;
   }
   &&-card &-card-bar &-tab-active {
-    height: @tabs-card-height;
+    padding-bottom: 1px;
     color: @tabs-card-active-color;
     background: @component-background;
     border-color: @border-color-split;
-    border-bottom: @border-width-base solid @component-background;
   }
   &&-card &-card-bar &-tab-inactive {
     padding: 0;
@@ -17977,7 +18007,7 @@ span.@{radio-prefix-cls} + * {
 .@{tag-prefix-cls} {
   .reset-component;
   display: inline-block;
-  height: auto;
+  height: 22px;
   margin-right: 8px;
   padding: 0 7px;
   font-size: @tag-font-size;
@@ -17988,7 +18018,7 @@ span.@{radio-prefix-cls} + * {
   border-radius: @border-radius-base;
   cursor: pointer;
   opacity: 1;
-  transition: all 0.3s @ease-in-out-circ;
+  transition: all 0.3s @ease-out;
 
   &:hover {
     opacity: 0.85;
@@ -18012,7 +18042,7 @@ span.@{radio-prefix-cls} + * {
     color: @text-color-secondary;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s @ease-in-out-circ;
+    transition: all 0.3s;
 
     &:hover {
       color: @heading-color;
@@ -18048,14 +18078,34 @@ span.@{radio-prefix-cls} + * {
     }
   }
 
+  &-close {
+    width: 0 !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  &-zoom-enter,
+  &-zoom-appear {
+    animation: antFadeIn 0.2s @ease-in-out-circ;
+    animation-fill-mode: both;
+  }
+
+  &-zoom-leave {
+    animation: antZoomOut 0.3s @ease-in-out-circ;
+    animation-fill-mode: both;
+  }
+
   &-hidden {
     display: none;
   }
 
+  @colors: pink, magenta, red, volcano, orange, yellow, gold, cyan, lime, green, blue, geekblue,
+    purple;
+
   // mixin to iterate over colors and create CSS class for each one
-  .make-color-classes(@i: length(@preset-colors)) when (@i > 0) {
+  .make-color-classes(@i: length(@colors)) when (@i > 0) {
     .make-color-classes(@i - 1);
-    @color: extract(@preset-colors, @i);
+    @color: extract(@colors, @i);
     @lightColor: '@{color}-1';
     @lightBorderColor: '@{color}-3';
     @darkColor: '@{color}-6';
@@ -18234,7 +18284,6 @@ span.@{radio-prefix-cls} + * {
   display: inline-block;
   width: 128px;
   outline: none;
-  cursor: text;
   transition: opacity 0.3s;
 
   &-input {
@@ -19135,21 +19184,6 @@ span.@{radio-prefix-cls} + * {
       }
     }
   }
-
-  &.@{tree-prefix-cls}-block-node {
-    li {
-      .@{tree-prefix-cls}-node-content-wrapper {
-        width: ~'calc(100% - 24px)';
-      }
-      span {
-        &.@{tree-prefix-cls}-checkbox {
-          + .@{tree-prefix-cls}-node-content-wrapper {
-            width: ~'calc(100% - 46px)';
-          }
-        }
-      }
-    }
-  }
 }
 
 @select-prefix-cls: ~'@{ant-prefix}-select';
@@ -19309,12 +19343,8 @@ span.@{radio-prefix-cls} + * {
 .@{select-prefix-cls}-tree-dropdown {
   .reset-component;
   .@{select-prefix-cls}-dropdown-search {
-    position: sticky;
-    top: 0;
-    z-index: 1;
     display: block;
     padding: 4px;
-    background: @component-background;
     .@{select-prefix-cls}-search__field__wrap {
       width: 100%;
     }
@@ -19409,7 +19439,7 @@ span.@{radio-prefix-cls} + * {
     }
 
     &.@{upload-prefix-cls}-drag-hover:not(.@{upload-prefix-cls}-disabled) {
-      border-color: @primary-7;
+      border: 2px dashed @primary-5;
     }
 
     &.@{upload-prefix-cls}-disabled {
