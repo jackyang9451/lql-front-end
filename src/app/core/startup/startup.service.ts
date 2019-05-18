@@ -81,7 +81,7 @@ export class StartupService {
     //   });
     // }
     // mock
-    this.httpClient.get('http://localhost:4200/assets/tmp/app-data.json')
+    this.httpClient.get('http://10.170.170.131:4200/assets/tmp/app-data.json')
     .subscribe(appData => {
          // application data
        const res: any = appData;
