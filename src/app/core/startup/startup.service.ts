@@ -82,7 +82,7 @@ export class StartupService {
       tokenData = this.tokenService.get(); // 这里语句的意思是 重新获取tokenData的值
     }
     // mock
-    this.httpClient.get('http://10.170.170.131:4200/assets/tmp/app-data.json')
+    this.httpClient.get('assets/tmp/app-data.json')
     .subscribe(appData => {
       console.log('运行一次');
          // application data
