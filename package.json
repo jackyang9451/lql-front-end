@@ -92,7 +92,7 @@
     "stylelint": "^9.10.1",
     "stylelint-config-standard": "^18.2.0",
     "webpack-bundle-analyzer": "^3.1.0",
-    "xlsx": "^0.14.0",
+    "xlsx": "^0.17.0",
     "@delon/testing": "^7.2.0",
     "ng-alain": "^7.2.0",
     "ng-alain-codelyzer": "^0.0.1"
